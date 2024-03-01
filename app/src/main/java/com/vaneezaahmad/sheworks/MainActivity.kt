@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
 
         val tap = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.main)
         tap.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, GetStartedActivity::class.java)
             startActivity(intent)
         }
     }

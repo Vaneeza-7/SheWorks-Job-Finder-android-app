@@ -93,7 +93,7 @@
             android:inputType="textPersonName"
             android:padding="10dp"
             android:textColor="#CE000000"
-            android:textColorHint="#000000"
+            android:textColorHint="#6B000000"
             android:textSize="20sp" />
 
         <TextView
@@ -125,7 +125,7 @@
             android:inputType="textPassword"
             android:padding="10dp"
             android:textColor="#CE000000"
-            android:textColorHint="#000000"
+            android:textColorHint="#6B000000"
             android:textSize="20sp" />
 
         <TextView
