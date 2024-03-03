@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6BECE"
+    tools:context=".NavigationActivity">
+
+    <com.tenclouds.fluidbottomnavigation.FluidBottomNavigation
+        android:id="@+id/fluidBottomNavigation"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:height="67dp"
+        app:accentColor="@color/colorPrimaryDark"
+        app:backColor="@color/backColor"
+        app:iconColor="@color/colorPrimary"
+        app:iconSelectedColor="@color/iconSelectedColor"
+        app:textColor="@color/colorPrimaryDark"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

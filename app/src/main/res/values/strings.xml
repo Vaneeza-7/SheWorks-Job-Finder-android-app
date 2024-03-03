@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SheWorks</string>
+    <string name="home">Home</string>
+    <string name="dashboard">Job Board</string>
+    <string name="calendar">Calendar</string>
+    <string name="chat">Chat</string>
+    <string name="profile">Profile</string>
 </resources>

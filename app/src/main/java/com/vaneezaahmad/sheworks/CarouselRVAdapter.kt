@@ -21,13 +21,13 @@ class CarouselRVAdapter(private val carouselDataList: ArrayList<CarouselItem>) :
     }
 
     override fun onBindViewHolder(holder: CarouselItemViewHolder, position: Int) {
-       val actualPosition = position % carouselDataList.size
-        val currentItem = carouselDataList[actualPosition]
+      // val actualPosition = position % carouselDataList.size
+        val currentItem = carouselDataList[position]
         holder.textView.text = currentItem.text
         holder.imageView.setImageResource(currentItem.imageResId)
     }
 
     override fun getItemCount(): Int {
-        return Int.MAX_VALUE
+        return carouselDataList.size;
     }
 }
