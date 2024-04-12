@@ -7,6 +7,12 @@
     android:background="#F6BECE"
     tools:context=".NavigationActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_container_view">
+    </FrameLayout>
+
     <com.tenclouds.fluidbottomnavigation.FluidBottomNavigation
         android:id="@+id/fluidBottomNavigation"
         android:layout_height="wrap_content"
@@ -20,6 +26,6 @@
         app:iconColor="@color/colorPrimary"
         app:iconSelectedColor="@color/iconSelectedColor"
         app:textColor="@color/colorPrimaryDark"
-        />
+        tools:ignore="MissingClass" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

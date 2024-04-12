@@ -3,8 +3,10 @@ package com.vaneezaahmad.sheworks
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.tenclouds.fluidbottomnavigation.FluidBottomNavigation
 import com.tenclouds.fluidbottomnavigation.FluidBottomNavigationItem
+import com.tenclouds.fluidbottomnavigation.listener.OnTabSelectedListener
 
 class NavigationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +38,33 @@ class NavigationActivity : AppCompatActivity() {
                     getString(R.string.profile),
                     ContextCompat.getDrawable(this, R.drawable.ic_profile)))
 
-
+        setCurrentFragment(HomeFragment());
+        fluidBottomNavigation.onTabSelectedListener = object : OnTabSelectedListener {
+            override fun onTabSelected(position: Int) {
+                when (position) {
+                    0 -> {
+                        setCurrentFragment(HomeFragment())
+                    }
+                    1 -> {
+                        setCurrentFragment(JobBoardFragment())
+                    }
+                    2 -> {
+                        setCurrentFragment(CalendarFragment())
+                    }
+                    3 -> {
+                        setCurrentFragment(ChatFragment())
+                    }
+                    4 -> {
+                        setCurrentFragment(ProfileFragment())
+                    }
+                }
+            }
+        }
     }
+
+    private fun setCurrentFragment(fragment: Fragment) =
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container_view, fragment)
+            commit()
+        }
 }

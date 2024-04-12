@@ -46,12 +46,13 @@
         app:layout_constraintTop_toBottomOf="@id/view_pager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        tools:ignore="MissingClass" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="170dp"
+        android:layout_width="152dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:backgroundTint="#D5094E"
         android:fontFamily="sans-serif-condensed"
         android:padding="15dp"
@@ -59,7 +60,7 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:alpha="0.8"
+        android:alpha="0.9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
