@@ -3,5 +3,6 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/arizonia</item>
         <item>@font/emblema_one</item>
+        <item>@font/salsa</item>
     </array>
 </resources>

@@ -6,6 +6,38 @@
     android:orientation="vertical"
     android:background="#F6BECE">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimaryDark"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="Job Details"
+        app:titleTextColor="@color/white"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+        <ImageButton
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/menu_button"
+         android:src="@drawable/baseline_menu_24"
+         android:background="@color/colorPrimaryDark"
+         android:layout_margin="10dp"
+         android:layout_marginTop="20dp"
+         android:padding="10dp"/>
+
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/job_board"
         android:layout_width="wrap_content"
@@ -25,10 +57,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/searchView"
         android:layout_margin="10dp"
-        android:queryHint="Enter Job Title here ..."
+        android:queryHint="Enter job title here ..."
         android:searchHintIcon="@drawable/briefcase"
         android:autofillHints="name"
         android:background="@drawable/searchview_background"
+        android:iconifiedByDefault="false"
         />
 
     <HorizontalScrollView

@@ -104,6 +104,7 @@
             android:layout_margin="8dp"
             android:orientation="horizontal">
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/apply_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -113,6 +114,7 @@
                 style="?attr/borderlessButtonStyle"
                 />
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/view_details_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"

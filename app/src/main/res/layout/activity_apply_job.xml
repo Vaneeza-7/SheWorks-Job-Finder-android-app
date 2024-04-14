@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6BECE"
+    tools:context=".ApplyJobActivity">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimaryDark"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="Job Details"
+        app:titleTextColor="@color/white"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/back_button"
+        android:layout_margin="15dp"
+        android:padding="5dp"
+        android:src="@drawable/baseline_arrow_back_ios_24"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:scrollbars="vertical"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="20dp"
+        android:padding="16dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_name"
+            android:background="@drawable/searchview_background"
+            android:backgroundTint="@color/white"
+            android:padding="20dp">
+
+            <!-- Job Details Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Job Application"
+                android:textStyle="bold"
+                android:fontFamily="@font/emblema_one"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:layout_marginTop="24dp"/>
+
+            <ImageView
+                android:id="@+id/company_logo"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:padding="10dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/microsoft_logo"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/job_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Stack Developer"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+            <TextView
+                android:id="@+id/company_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Microsoft Corporation"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="@color/iconSelectedColor" />
+
+            <Button
+                android:id="@+id/viewJobDetailsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:text="View Job Details"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Profile Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👤 Profile Information"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:layout_marginTop="24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Click here to edit your profile"
+                android:textSize="15sp"
+                android:textColor="#ABAAAC"
+                android:layout_marginTop="8dp"
+                app:rippleColor="@color/ripple_color"/>
+
+            <!-- Resume Section -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎓 Resume"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:layout_marginTop="24dp"/>
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/baseline_cloud_upload_24"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload your resume here"
+                android:textSize="15sp"
+                android:textColor="#ABAAAC"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/iconButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Browse Files"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/iconSelectedColor"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp"/>
+
+            <!-- Cover Letter Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✉️ Cover Letter"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"/>
+
+            <EditText
+                android:id="@+id/editTextCoverLetter"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="textMultiLine"
+                android:textSize="15sp"
+                android:hint="Type or paste your cover letter here"
+                android:textColorHint="#ABAAAC"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"/>
+
+            <!-- Additional Questions -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✍🏼 Additional Information"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="24dp"/>
+
+            <EditText
+                android:id="@+id/editTextAdditionalInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:hint="Why are you a good fit for this role?"
+                android:textColorHint="#ABAAAC"
+                android:layout_marginTop="8dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I confirm that the information provided is accurate"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"/>
+
+            <!-- Submit Button -->
+            <Button
+                android:id="@+id/buttonSubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit Application"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/iconSelectedColor"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="16dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/colorAccent"
+                />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
