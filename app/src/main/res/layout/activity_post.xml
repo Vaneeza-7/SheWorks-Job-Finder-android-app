@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Post">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#F6BDCE"
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Post"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/salsa"
+        >
+
+    </TextView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="20dp"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/baseline_add_a_photo_24"
+                ></ImageView>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="20dp"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/baseline_drive_folder_upload_24"
+                ></ImageView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="add picture"
+                android:textColor="@color/white"
+                android:fontFamily="@font/salsa"
+                android:textSize="20dp">
+
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="add video"
+                android:textColor="@color/white"
+                android:fontFamily="@font/salsa"
+                android:layout_marginLeft="10dp"
+                android:textSize="20dp">
+
+            </TextView>
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="add caption"
+            android:textColor="@color/white"
+            android:fontFamily="@font/salsa"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp">
+
+        </TextView>
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="350dp"
+            android:layout_height="100dp"
+            android:text="add caption"
+            android:textColor="@color/white"
+            android:fontFamily="@font/salsa"
+            android:layout_marginLeft="10dp"
+            android:background="@color/white"
+            android:textSize="20dp">
+
+        </EditText>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post"
+            android:fontFamily="@font/salsa"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#5E35B1"></Button>
+    </LinearLayout>
+</LinearLayout>

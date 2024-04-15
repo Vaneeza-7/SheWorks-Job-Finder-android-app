@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddAccount">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="2"
+            android:background="#F6BDCE"
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Account"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/salsa"
+                >
+
+            </TextView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/baseline_account_circle_24"
+                    android:layout_marginTop="30dp"
+                    android:backgroundTint="@color/white"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/pic"
+                    ></ImageView>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/pic"
+                    android:layout_alignBottom="@id/pic"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/baseline_edit_24"></ImageView>
+            </RelativeLayout>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="YOUR NAME"
+                android:autofillHints="name"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:textColorHint="@color/white"
+                android:fontFamily="@font/salsa"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                ></EditText>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Mention a profession.....etc Data Analyst"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:textSize="15dp"
+                android:textColorHint="@color/white"
+                android:fontFamily="@font/salsa"
+                ></EditText>
+            -------------------------------------------------
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Details"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="10dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/salsa"
+                        ></TextView>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="20dp"
+                        >
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="City.."
+                            android:layout_gravity="left"
+                            android:layout_marginTop="0dp"
+                            android:textSize="15dp"
+                            android:textColorHint="@color/white"
+                            android:fontFamily="@font/salsa"
+                            ></EditText>
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Country..."
+                            android:layout_gravity="left"
+                            android:layout_marginTop="0dp"
+                            android:textSize="15dp"
+                            android:textColorHint="@color/white"
+                            android:fontFamily="@font/salsa"
+                            ></EditText>
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Contact Number..."
+                            android:layout_gravity="left"
+                            android:layout_marginTop="0dp"
+                            android:textSize="15dp"
+                            android:textColorHint="@color/white"
+                            android:fontFamily="@font/salsa"
+                            ></EditText>
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Gmail.."
+                            android:layout_gravity="left"
+                            android:layout_marginTop="0dp"
+                            android:textSize="15dp"
+                            android:textColorHint="@color/white"
+                            android:fontFamily="@font/salsa"
+                            ></EditText>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:background="@drawable/baseline_add_24"></ImageView>
+                    </LinearLayout>
+                </LinearLayout>
+                -------------------------------------------------
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="50dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Links"
+                        android:fontFamily="@font/salsa"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="10dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        ></TextView>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        >
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Github Link"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="5dp"
+                            android:textSize="15dp"
+                            android:textColor="@color/white"
+                            android:autoLink="web"
+                            android:linksClickable="true"
+                            android:textColorHint="@color/white"
+                            android:fontFamily="@font/salsa"
+                            ></EditText>
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="LinkedIn Link"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="5dp"
+                            android:textSize="15dp"
+                            android:textColor="@color/white"
+                            android:linksClickable="true"
+                            android:textColorHint="@color/white"
+                            android:fontFamily="@font/salsa"
+                            ></EditText>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:background="@drawable/baseline_add_24"></ImageView>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="5dp"
+                android:text="About me"
+                android:textColor="@color/black"
+                android:fontFamily="@font/salsa"
+                android:textSize="25dp"></TextView>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+               android:hint="Type something about yourself"
+                android:fontFamily="@font/salsa"
+                android:textSize="15dp">
+
+            </EditText>
+            -------------------------------------------------
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Skills"
+                    android:layout_marginTop="5dp"
+                    android:textSize="25dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/salsa"
+                    ></TextView>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    >
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="C++..."
+                        android:layout_gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:textSize="15dp"
+                        ></EditText>
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/black"
+                        android:background="@drawable/baseline_add_24"></ImageView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:text="Experience"
+                android:textColor="@color/black"
+                android:fontFamily="@font/salsa"
+                android:textSize="25dp"></TextView>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:hint="Mern Stack Developer
+             \n 2021 -2022
+             \nRistech Islamabad"
+                android:fontFamily="@font/salsa"
+                android:textColor="@color/black"
+                android:textSize="15dp"></EditText>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:hint="Backend Developer
+             \n 2019 -2020
+             \nFDC Fast"
+                android:fontFamily="@font/salsa"
+                android:textColor="@color/black"
+                android:textSize="15dp"></EditText>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/baseline_add_24"></ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:text="Projects"
+                android:textColor="@color/black"
+                android:fontFamily="@font/salsa"
+                android:textSize="25dp"></TextView>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:hint="Rush Hour game
+             \n 2021
+             \nC++ Linux Ubuntu Console"
+                android:fontFamily="@font/salsa"
+                android:textColor="@color/black"
+                android:textSize="15dp"></EditText>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:hint="Flex
+             \n 2022
+             \n University Student Teacher Portal for Fast
+             \n C# Sql Web App .NET HTML CSS"
+                android:fontFamily="@font/salsa"
+                android:textColor="@color/black"
+                android:textSize="15dp"></EditText>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/baseline_add_24"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:text="Qualification"
+                android:textColor="@color/black"
+                android:fontFamily="@font/salsa"
+                android:textSize="25dp"></TextView>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:hint="ICS
+             \n 2017-2019
+             \n Kips College
+             \n 1010/1100"
+                android:fontFamily="@font/salsa"
+                android:textColor="@color/black"
+                android:textSize="15dp"></EditText>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:hint="Metric
+             \n 2015-2017
+             \n IMCG Isl
+             \n 998/1100"
+                android:fontFamily="@font/salsa"
+                android:textColor="@color/black"
+                android:textSize="15dp"></EditText>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/baseline_add_24"></ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:text="Acheivements"
+                android:textColor="@color/black"
+                android:fontFamily="@font/salsa"
+                android:textSize="25dp"></TextView>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:hint="Star of NesSCon'22
+             \n June 2022
+             \n Associated with NaSCon"
+
+                android:fontFamily="@font/salsa"
+                android:textColor="@color/black"
+                android:textSize="15dp"></EditText>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:hint="Best Ambassador
+             \n March 2022
+             \n Issued by SOFTEC - FAST NUCES Lahore"
+
+                android:fontFamily="@font/salsa"
+                android:textColor="@color/black"
+                android:textSize="15dp"></EditText>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/baseline_add_24"></ImageView>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                android:fontFamily="@font/salsa"
+                android:layout_gravity="center"
+                android:backgroundTint="#8E24AA"></Button>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</ScrollView>
