@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/main_item"
+        android:title="Quick Access"
+        android:icon="@drawable/works"
+        >
+        <menu>
+            <item
+                android:id="@+id/notification_item"
+                android:icon="@drawable/baseline_notifications_24"
+                android:title="Notifications"
+                android:checkable="true"
+                app:showAsAction="ifRoom"/>
+            <item
+                android:id="@+id/saved_item"
+                android:icon="@drawable/baseline_bookmarks_24"
+                android:title="My Saves"
+                android:checkable="true"
+                app:showAsAction="ifRoom"/>
+            <item
+                android:id="@+id/applications_item"
+                android:icon="@drawable/baseline_checklist_24"
+                android:title="My Applications"
+                android:checkable="true"
+                app:showAsAction="ifRoom"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/labels_item"
+        android:title="Information and Support"
+        android:icon="@drawable/baseline_contact_support_24"
+        >
+        <menu>
+            <item
+                android:id="@+id/about"
+                android:icon="@drawable/baseline_info_24"
+                android:title="About SheWorks"
+                android:checkable="true"
+                app:showAsAction="ifRoom"/>
+            <item
+                android:id="@+id/feedback"
+                android:icon="@drawable/baseline_feedback_24"
+                android:title="Feedback"
+                android:checkable="true"
+                app:showAsAction="ifRoom"/>
+        </menu>
+    </item>
+</menu>
