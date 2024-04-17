@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6BECE"
+    tools:context=".AudioCallActivity">
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="612dp"
+        app:layout_constraintBottom_toTopOf="@+id/micbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="start"
+        android:layout_gravity="center_vertical"
+        android:text="Sara Ali"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="start"
+        android:layout_gravity="center_vertical"
+        android:text="50:08"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImage"
+        android:layout_width="158dp"
+        android:layout_height="125dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/woman_profile"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/time" />
+
+    <ImageButton
+        android:id="@+id/micbutton"
+        android:layout_width="80dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/circle_filled"
+        android:backgroundTint="@color/iconSelectedColor"
+        android:src="@drawable/mic_off"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/closeButton"/>
+
+    <ImageButton
+        android:id="@+id/speaker"
+        android:layout_width="80dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/circle_filled"
+        android:backgroundTint="@color/iconSelectedColor"
+        android:src="@drawable/ic_speaker_wave"
+        app:layout_constraintStart_toEndOf="@+id/micbutton"
+        app:layout_constraintBottom_toTopOf="@id/closeButton" />
+
+
+    <ImageButton
+        android:id="@+id/pauseButton"
+        android:layout_width="80dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/circle_filled"
+        android:backgroundTint="@color/iconSelectedColor"
+        android:src="@drawable/baseline_pause_24"
+        app:layout_constraintStart_toEndOf="@id/speaker"
+        app:layout_constraintBottom_toTopOf="@id/closeButton" />
+
+
+    <ImageButton
+        android:id="@+id/closeButton"
+        android:layout_width="80dp"
+        android:layout_height="75dp"
+        android:background="@drawable/circle_filled"
+        android:backgroundTint="#BF0D0D"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/baseline_close_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

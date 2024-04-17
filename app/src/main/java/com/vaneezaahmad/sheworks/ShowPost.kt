@@ -1,4 +1,4 @@
-package com.firstclass.project
+package com.vaneezaahmad.sheworks
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

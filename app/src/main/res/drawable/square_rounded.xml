@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <solid android:color="@color/colorAccent" /> <!-- Set the color of the square -->
+    <corners android:radius="10dp" /> <!-- Set the radius for rounded corners -->
+
+    <!-- Set the size of the square -->
+    <size
+        android:width="50dp"
+        android:height="50dp" />
+
+</shape>

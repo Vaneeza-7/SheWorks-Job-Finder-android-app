@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6BECE"
+    tools:context=".VideoCallActivity">
+
+    <FrameLayout
+        android:id="@+id/remote_user"
+        android:layout_width="match_parent"
+        android:layout_height="612dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/micbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="start"
+        android:layout_gravity="center_vertical"
+        android:text="50:08"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/micbutton"
+        android:layout_width="80dp"
+        android:layout_height="75dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/circle_filled"
+        android:backgroundTint="@color/iconSelectedColor"
+        android:src="@drawable/mic_off"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/videoButton"
+        android:layout_width="80dp"
+        android:layout_height="75dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/circle_filled"
+        android:backgroundTint="@color/iconSelectedColor"
+        android:src="@drawable/baseline_videocam_off_24"
+        app:layout_constraintStart_toEndOf="@+id/micbutton"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/switchButton"
+        android:layout_width="80dp"
+        android:layout_height="75dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/circle_filled"
+        android:backgroundTint="@color/iconSelectedColor"
+        android:src="@drawable/baseline_autorenew_24"
+        app:layout_constraintStart_toEndOf="@id/videoButton"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/closeButton"
+        android:layout_width="80dp"
+        android:layout_height="75dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/circle_filled"
+        android:backgroundTint="#BF0D0D"
+        android:src="@drawable/baseline_close_24"
+        app:layout_constraintStart_toEndOf="@id/switchButton"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/local_user"
+        android:layout_width="162dp"
+        android:layout_height="218dp"
+        android:layout_margin="30dp"
+        android:background="@drawable/square_rounded"
+        android:backgroundTint="#F0F0F0"
+        app:layout_constraintBottom_toBottomOf="@id/remote_user"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

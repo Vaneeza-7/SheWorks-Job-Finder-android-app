@@ -1,4 +1,4 @@
-package com.firstclass.project
+package com.vaneezaahmad.sheworks
 
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
