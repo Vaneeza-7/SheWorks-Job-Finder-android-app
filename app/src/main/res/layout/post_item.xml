@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    style="@style/Widget.Material3.CardView.Elevated"
+    android:background="@color/white"
+    android:backgroundTint="@color/white"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Profile section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_profile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop"
+                app:civ_border_color="@color/colorAccent"
+                app:civ_border_width="1dp"
+                android:src="@drawable/woman_profile" />
+
+            <TextView
+                android:id="@+id/text_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/black"
+                android:text="Username"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/text_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2m ago"
+                android:layout_marginStart="8dp"
+                android:layout_gravity="center|end"
+                android:textColor="@color/colorPrimaryDark"
+                style="@style/TextAppearance.AppCompat.Small"
+                />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/image_post"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/office_room" />
+
+        <TextView
+            android:id="@+id/text_post_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:text="Happy to share that today was my first day at the new office. I am excited to work with the new team."
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="8dp">
+
+            <ImageButton
+                android:id="@+id/button_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/baseline_thumb_up_off_alt_24" />
+
+            <TextView
+                android:id="@+id/text_likes_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 likes"
+                android:textSize="14sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/iconSelectedColor"
+                android:layout_marginStart="4dp"/>
+
+            <ImageButton
+                android:id="@+id/button_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/baseline_comment_24"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/text_comments_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View comments"
+                android:textColor="@color/iconSelectedColor"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

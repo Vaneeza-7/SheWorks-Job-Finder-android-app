@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/profile_card"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp"
+    android:backgroundTint="@color/white"
+    app:cardUseCompatPadding="true"
+    style="@style/Widget.Material3.CardView.Elevated">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/girl_job"
+            android:scaleType="centerCrop"
+            app:civ_border_color="@color/colorAccent"
+            app:civ_border_width="1dp"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/profile_designation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Designation"
+            android:textColor="@color/iconSelectedColor"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/profile_connect_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Connect"
+            app:icon="@drawable/baseline_group_add_24"
+            app:iconPadding="3dp"
+            app:iconTint="@color/white"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+            android:backgroundTint="@color/colorAccent"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

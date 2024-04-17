@@ -11,9 +11,10 @@
         android:background="#FEFEFE"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <!-- Media and Text -->
+        <!-- Top Section: Logo and Title -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,87 +22,92 @@
 
             <ImageView
                 android:id="@+id/company_logo"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:padding="10dp"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/microsoft_logo"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:scaleType="centerCrop"
-                />
+                app:srcCompat="@drawable/microsoft_logo"
+                android:layout_marginEnd="16dp"
+                android:layout_gravity="center_vertical" />
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <!-- Title, secondary and supporting text -->
+                android:orientation="vertical">
                 <TextView
                     android:id="@+id/job_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
                     android:text="Full Stack Developer"
-                    android:textColor="@color/black"
-                    android:textAppearance="?attr/textAppearanceTitleMedium"
-                    />
+                    android:padding="2dp"
+                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceTitleLarge"
+                    android:textColor="@color/black"/>
                 <TextView
                     android:id="@+id/company_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:text="Microsoft Corporation"
-                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:padding="1dp"
                     android:textColor="@color/iconSelectedColor"
-                    />
-
-                <TextView
-                    android:id="@+id/salary_range"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="17dp"
-                    android:text="$1000 - $1500"
-                    android:textAppearance="?attr/textAppearanceBodyMedium"
-                    android:textColor="?android:attr/textColorSecondary"
-                    />
-
-                <TextView
-                    android:id="@+id/job_location"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Location"
-                    android:textAppearance="?attr/textAppearanceBodyMedium"
-                    android:textColor="?android:attr/textColorSecondary"
-                    />
-
-                <TextView
-                    android:id="@+id/job_type_timings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Full time - 40 hours/week"
-                    android:textAppearance="?attr/textAppearanceBodyMedium"
-                    android:textColor="?android:attr/textColorSecondary"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Posted 2 days ago"
-                    android:textAppearance="?attr/textAppearanceBodyMedium"
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:layout_marginTop="5dp"
-                    />
-
+                    android:textAppearance="?attr/textAppearanceTitleMedium"/>
             </LinearLayout>
 
+            <ImageButton
+                android:id="@+id/bookmark_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_bookmark_border_24"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_gravity="center_vertical"/>
+
         </LinearLayout>
+
+        <!-- Detail Section -->
+
+        <TextView
+            android:id="@+id/salary_range"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="$1000 - $1500"
+            android:padding="2dp"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/black"
+            android:textAppearance="?attr/textAppearanceBody2"/>
+
+        <TextView
+            android:id="@+id/job_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Redmond, WA"
+            android:textColor="@color/black"
+            android:padding="2dp"
+            android:textAppearance="?attr/textAppearanceBody2"/>
+
+        <TextView
+            android:id="@+id/job_type_timings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Full time - 40 hours/week"
+            android:textColor="@color/black"
+            android:padding="2dp"
+            android:textAppearance="?attr/textAppearanceBody2"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Posted 2 days ago"
+            android:textColor="@color/black"
+            android:padding="2dp"
+            android:textAppearance="?attr/textAppearanceBodySmall"/>
 
         <!-- Buttons -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
             android:orientation="horizontal">
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/apply_button"
@@ -111,6 +117,9 @@
                 android:text="APPLY"
                 android:layout_gravity="end"
                 android:textColor="@color/iconSelectedColor"
+                app:icon="@drawable/apply_svgrepo_com"
+                app:iconTint="@color/iconSelectedColor"
+                app:iconPadding="5dp"
                 style="?attr/borderlessButtonStyle"
                 />
             <com.google.android.material.button.MaterialButton
@@ -119,9 +128,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:text="VIEW DETAILS"
+                app:icon="@drawable/baseline_arrow_outward_24"
+                app:iconTint="@color/iconSelectedColor"
                 android:textColor="@color/iconSelectedColor"
+                app:iconPadding="5dp"
                 style="?attr/borderlessButtonStyle"
                 />
         </LinearLayout>
+
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

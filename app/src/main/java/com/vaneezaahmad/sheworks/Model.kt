@@ -7,7 +7,6 @@ data class Model(
     val imageUri: Uri,
     val videoUri: Uri,
     val caption: String
-
 )
 {
 

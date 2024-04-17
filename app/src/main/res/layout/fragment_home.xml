@@ -2,89 +2,148 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6BECE"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:background="#F6BDCE"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="@color/colorPrimaryDark"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="Chat"
+            app:titleTextColor="@color/white"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageButton
+            android:id="@+id/menu_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:padding="10dp"
+            android:src="@drawable/baseline_menu_24" />
+    </RelativeLayout>
+
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#F6BDCE"
-        android:paddingTop="20dp"
-        android:paddingLeft="10dp"
-        android:paddingBottom="10dp"
-        >
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:fontFamily="@font/salsa"
-            android:id="@+id/name"
-            ></EditText>
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_gravity="center"
-            android:id="@+id/image"
-            android:background="@color/white">
-        </ImageView>
-        <VideoView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:id="@+id/video"
-            android:background="@color/white">
-        </VideoView>
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:fontFamily="@font/salsa"
-            android:id="@+id/caption"
-            ></EditText>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Like"
-                android:textColor="@color/white"
-                android:fontFamily="@font/salsa"
-                android:textSize="20dp"
-                android:layout_gravity="center"></TextView>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:background="@mipmap/like"></ImageView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
-                android:text="Comment"
-                android:textColor="@color/white"
-                android:fontFamily="@font/salsa"
-                android:textSize="20dp"
-                android:layout_gravity="center"></TextView>
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:backgroundTint="@color/white"
-                android:background="@drawable/baseline_comment_24"></ImageView>
 
-        </LinearLayout>
-    </LinearLayout>
+        android:hardwareAccelerated="true">
+
+        <!-- Screen content -->
+        <!-- Use app:layout_behavior="@string/appbar_scrolling_view_behavior" to fit below top app bar -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/emblema_one"
+                android:padding="10dp"
+                android:text="Your Feed"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/reccomendationTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="You might also know"
+                android:textColor="@color/black"
+                android:padding="10dp"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reccomendationsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="5dp"
+                android:layout_below="@+id/reccomendationTitle"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/postsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_below="@+id/reccomendationsRecyclerView"
+                />
+        </RelativeLayout>
+        </ScrollView>
+            <com.robertlevonyan.views.customfloatingactionbutton.FloatingActionButton
+                android:id="@+id/newPost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabIcon="@drawable/baseline_post_add_24"
+                android:layout_marginBottom="60dp"
+                android:layout_marginEnd="20dp"
+                app:backgroundTint="@color/iconSelectedColor"
+                app:fabSize="normal"
+                app:rippleColor="@color/colorPrimary"
+                android:padding="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:enabled="true"
+                />
+        </RelativeLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/iconSelectedColor"
+            app:menu = "@menu/navigation_drawer"
+            app:itemTextColor="@color/white"
+            app:itemIconTint="@color/white"
+            app:subheaderColor="@color/white"
+            />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
 
 </LinearLayout>
