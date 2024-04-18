@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signup">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#F6BECE">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Toolbar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/toolbar"
+                        android:background="@color/colorPrimaryDark"
+                        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                        app:title="Job Details"
+                        app:titleTextColor="@color/white"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/back_button"
+                        android:layout_margin="15dp"
+                        android:padding="5dp"
+                        android:src="@drawable/baseline_arrow_back_ios_24"
+                        android:background="@color/colorPrimaryDark"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+
+                </RelativeLayout>
+
+            <TextView
+                android:id="@+id/title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/emblema_one"
+                android:text="Edit Profile"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="normal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="97dp" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileImage"
+                android:layout_width="158dp"
+                android:layout_height="125dp"
+                android:layout_margin="20dp"
+                android:src="@drawable/woman_profile"
+                app:civ_border_color="#FFFFFF"
+                app:civ_border_width="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title1" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/emblema_one"
+                android:textColor="#000000"
+                android:textSize="40sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.24"/>
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Name"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#FFFFFF"
+                android:hint=" Enter Username"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#CE000000"
+                android:textColorHint="#6B000000"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"/>
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Email"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@+id/username"
+                />
+
+            <EditText
+                android:id="@+id/useremail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#FFFFFF"
+                android:hint=" Enter Email"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#CE000000"
+                android:textColorHint="#6B000000"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/email"/>
+
+            <TextView
+                android:id="@+id/Contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Contact Number"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@+id/useremail"
+                />
+
+            <EditText
+                android:id="@+id/usercontact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#FFFFFF"
+                android:hint=" Enter Contact Number"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#CE000000"
+                android:textColorHint="#6B000000"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/Contact"/>
+
+            <TextView
+                android:id="@+id/Country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Country Name"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@+id/usercontact"
+                />
+
+            <EditText
+                android:id="@+id/usercountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#FFFFFF"
+                android:hint=" Enter Your Country Name"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#CE000000"
+                android:textColorHint="#6B000000"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/Country"/>
+
+            <TextView
+                android:id="@+id/city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:text="City Name"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@+id/usercountry"
+                />
+
+            <EditText
+                android:id="@+id/usercity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#FFFFFF"
+                android:hint=" Enter Your City Name"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#CE000000"
+                android:textColorHint="#6B000000"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/city"/>
+
+            <TextView
+                android:id="@+id/usecase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Your Use Case"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@+id/usercity"
+                />
+
+            <EditText
+                android:id="@+id/userusecase"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#FFFFFF"
+                android:hint=" Hiring / Seeking Job"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#CE000000"
+                android:textColorHint="#6B000000"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/usecase"/>
+
+            <TextView
+                android:id="@+id/password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Current Password"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@+id/userusecase"
+                />
+
+            <EditText
+                android:id="@+id/userpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#FFFFFF"
+                android:hint=" Enter Your Current Password"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#CE000000"
+                android:textColorHint="#6B000000"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/password"/>
+
+            <TextView
+                android:id="@+id/newpassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:text="New Password"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@+id/userpassword"
+                />
+
+            <EditText
+                android:id="@+id/newuserpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#FFFFFF"
+                android:hint=" Enter New Password"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#CE000000"
+                android:textColorHint="#6B000000"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/newpassword"/>
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Password must be 8 letter long"
+                android:textColor="#FDFFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@+id/newuserpassword"
+                />
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="160dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="Update"
+                android:onClick="signup"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/iconSelectedColor"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView8" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="Don't want to Edit!"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/login" />
+
+
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</ScrollView>
