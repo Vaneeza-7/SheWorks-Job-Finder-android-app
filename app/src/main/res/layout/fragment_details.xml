@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/educationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:text="🎓 Education"
+        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_edit_24"
+        android:background="@color/white"
+        android:layout_alignTop="@id/educationTitle"
+        android:layout_alignBottom="@id/educationTitle"
+        android:layout_alignParentEnd="true"
+        android:padding="10dp"
+        />
+
+    <TextView
+        android:id="@+id/educationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/educationTitle"
+        android:layout_gravity="left"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:text="\u2022 Bachelors in Artificial Intelligence from FAST NUCES\n\u2022 Masters in Artificial Intelligence from NUST"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/experienceTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_margin="10dp"
+        android:text="🚀 Experience"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+        android:textColor="@color/black"
+        android:layout_below="@+id/educationText"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_edit_24"
+        android:background="@color/white"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/experienceTitle"
+        android:layout_alignBottom="@id/experienceTitle"
+        android:padding="10dp"
+        android:layout_below="@+id/educationText"
+        />
+
+    <TextView
+        android:id="@+id/experienceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/experienceTitle"
+        android:layout_gravity="left"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:text="Mern Stack Developer\n 2021 -2022\nRistech Islamabad\n\nSoftware Engineer\n 2022 - Present\nShe Loves Tech Islamabad"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        android:textColor="@color/black" />
+
+
+    <TextView
+        android:id="@+id/interestsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/experienceText"
+        android:layout_gravity="left"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:text="🌟 Interests"
+        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_edit_24"
+        android:background="@color/white"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/interestsTitle"
+        android:layout_alignBottom="@id/interestsTitle"
+        android:padding="10dp"
+        android:layout_below="@+id/experienceText"
+        />
+
+    <TextView
+        android:id="@+id/interestsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/interestsTitle"
+        android:layout_gravity="left"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:text="Artificial Intelligence, Machine Learning, Data Science, Software Development"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        android:textColor="@color/black" />
+
+
+    <TextView
+        android:id="@+id/projectsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/interestsText"
+        android:layout_gravity="left"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:text="💻 Projects"
+        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+     <ImageButton
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:src="@drawable/baseline_edit_24"
+         android:background="@color/white"
+         android:layout_alignParentEnd="true"
+         android:layout_alignTop="@id/projectsTitle"
+         android:layout_alignBottom="@id/projectsTitle"
+         android:padding="10dp"
+         android:layout_below="@+id/interestsText"
+         />
+
+    <TextView
+        android:id="@+id/projectsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/projectsTitle"
+        android:layout_gravity="left"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:text="SheLovesTech Android App\nSheLovesTech Website"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        android:textColor="@color/black" />
+
+
+</RelativeLayout>

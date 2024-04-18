@@ -25,6 +25,12 @@
                 android:title="My Applications"
                 android:checkable="true"
                 app:showAsAction="ifRoom"/>
+            <item
+                android:id="@+id/logout_item"
+                android:icon="@drawable/baseline_logout_24"
+                android:title="Logout"
+                android:checkable="true"
+                app:showAsAction="ifRoom"/>
         </menu>
     </item>
     <item

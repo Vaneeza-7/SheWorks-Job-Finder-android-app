@@ -1,144 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="#F6BECE">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="#F6BDCE"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="@color/colorPrimaryDark"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="Chat"
+            app:titleTextColor="@color/white"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageButton
+            android:id="@+id/menu_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:padding="10dp"
+            android:src="@drawable/baseline_menu_24" />
+    </RelativeLayout>
+
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
 
+        android:hardwareAccelerated="true">
 
+        <!-- Screen content -->
+        <!-- Use app:layout_behavior="@string/appbar_scrolling_view_behavior" to fit below top app bar -->
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <Toolbar
+            <!-- Profile image and name -->
+            <LinearLayout
+                android:id="@+id/headerLinear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/toolbar"
-                android:background="@color/colorPrimaryDark"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:title="Job Details"
-                app:titleTextColor="@color/white"
-                app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/menu_button"
-                android:src="@drawable/baseline_menu_24"
-                android:background="@color/colorPrimaryDark"
+                android:orientation="vertical"
+                android:gravity="center"
                 android:layout_margin="10dp"
-                android:layout_marginTop="20dp"
-                android:padding="10dp"/>
+                android:background="@drawable/searchview_background"
+                android:backgroundTint="@color/iconSelectedColor">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/pic"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/woman_profile"
+                        app:civ_border_color="@color/colorPrimaryDark"
+                        app:civ_circle_background_color="@color/white" />
+
+                    <Button
+                        style="?attr/materialIconButtonFilledStyle"
+                        android:id="@+id/iconButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="editpic"
+                        android:backgroundTint="@color/colorAccent"
+                        app:icon="@drawable/baseline_edit_24"
+                        app:iconTint="#FFFFFF"
+                        android:layout_marginTop="-40dp"
+                        android:layout_marginEnd="-15dp"
+                        android:layout_below="@+id/pic"
+                        android:layout_alignEnd="@+id/pic"
+                    />
+                </RelativeLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Laiba Tahreem Ahmad"
+                    android:fontFamily="@font/emblema_one"
+                    android:textSize="24sp"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="Requirements Engineer"
+                    android:textColor="@android:color/white"
+                    android:padding="5dp"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:padding="10dp">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_call_24"
+                    android:background="@drawable/circle_filled"
+                    android:backgroundTint="@color/colorAccent"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="20dp"
+                    android:padding="10dp"/>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_email_24"
+                    android:background="@drawable/circle_filled"
+                    android:backgroundTint="@color/colorAccent"
+                    android:layout_margin="10dp"
+                    android:padding="10dp"/>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_location_pin_24"
+                    android:background="@drawable/circle_filled"
+                    android:backgroundTint="@color/colorAccent"
+                    android:layout_margin="10dp"
+                    android:padding="10dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tabs"
+                android:layout_below="@id/headerLinear"
+                app:tabContentStart="56dp"
+                android:background="#F6BECE"
+                app:tabIndicatorColor="@color/iconSelectedColor"
+                app:tabSelectedTextColor="@color/iconSelectedColor"
+                app:tabTextColor="@color/white"
+                app:tabRippleColor="@color/she_logo_background"
+                app:tabIconTint="@color/white"
+                app:tabGravity="fill"
+                >
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Overview"
+                    android:icon="@drawable/baseline_person_24"
+                    />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Details"
+                    android:icon="@drawable/briefcase_svgrepo_com"
+                    />
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tabs"/>
 
         </RelativeLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-        <!-- Profile image and name -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:background="@drawable/searchview_background"
-            android:backgroundTint="@color/colorPrimary"
-            android:paddingTop="24dp">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@mipmap/ic_launcher_round"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Joseph Francis Tribiani"
-                android:fontFamily="@font/emblema_one"
-                android:textSize="24sp"
-                android:textColor="@android:color/white" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Data Analyst"
-                android:textSize="16sp"
-                android:textColor="@android:color/white"
-                android:layout_marginBottom="16dp" />
-        </LinearLayout>
-
-        <!-- Details section -->
-        <TextView
+</androidx.core.widget.NestedScrollView>
+        <!-- NavigationView -->
+        <com.google.android.material.navigation.NavigationView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Details"
-            android:fontFamily="@font/salsa"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="16dp" />
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/iconSelectedColor"
+            app:menu = "@menu/navigation_drawer"
+            app:itemTextColor="@color/white"
+            app:itemIconTint="@color/white"
+            app:subheaderColor="@color/white"
+            />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Islamabad, Pakistan\n0300 5132142\nali@gmail.com"
-            android:fontFamily="@font/salsa"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp" />
+    </androidx.drawerlayout.widget.DrawerLayout>
 
-        <!-- Experience section -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Experience"
-            android:fontFamily="@font/salsa"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="16dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mern Stack Developer (2021-2022)\nRistech Islamabad\nBackend Developer (2019-2020)\nFDC Fast"
-            android:fontFamily="@font/salsa"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp" />
-
-        <!-- Projects and achievements -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Projects and Achievements"
-            android:fontFamily="@font/salsa"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rush Hour game, 2021 - C++ Linux Ubuntu Console\nFlex, 2022 - University Student Teacher Portal for Fast\nStar of NesSCon'22, June 2022 - Associated with NaSCon"
-            android:fontFamily="@font/salsa"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp" />
-    </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>
