@@ -1,6 +1,0 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/colorPrimaryDark"/> <!-- Set the color of the rectangle -->
-
-    <!-- Set the size of the rectangle -->
-    <size android:width="418dp" android:height="59dp"/>
-</shape>
