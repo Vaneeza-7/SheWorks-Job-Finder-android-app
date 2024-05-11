@@ -43,13 +43,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-            <ImageView
+            <TextView
                 android:id="@+id/bell"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_marginEnd="32dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/mainbell"
+                android:text="🔔"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/title"
                 app:layout_constraintBottom_toBottomOf="@id/title"/>
@@ -73,7 +73,7 @@
                 android:layout_width="418dp"
                 android:layout_height="59dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/skybluesimplesqaure"
+                android:src="@drawable/rec_noti"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -97,12 +97,12 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.267" />
 
-            <ImageView
+            <TextView
                 android:id="@+id/close1"
                 android:layout_width="27dp"
                 android:layout_height="29dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_cross"
+                android:text="✖"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.937"
@@ -116,7 +116,7 @@
                 android:layout_height="59dp"
                 android:layout_marginTop="240dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/skybluesimplesqaure"
+                android:src="@drawable/rec_noti"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.571"
                 app:layout_constraintStart_toStartOf="parent"
@@ -138,12 +138,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/sky2"
                  />
-            <ImageView
+            <TextView
                 android:id="@+id/close2"
                 android:layout_width="27dp"
                 android:layout_height="29dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_cross"
+                android:text="✖"
                 app:layout_constraintBottom_toBottomOf="@id/sky2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.937"
@@ -157,7 +157,7 @@
                 android:layout_height="59dp"
                 android:layout_marginTop="8dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/skybluesimplesqaure"
+                android:src="@drawable/rec_noti"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sky2" />
@@ -178,12 +178,12 @@
                 app:layout_constraintTop_toTopOf="@id/b3"
                 app:layout_constraintVertical_bias="0.542" />
 
-            <ImageView
+            <TextView
                 android:id="@+id/close3"
                 android:layout_width="27dp"
                 android:layout_height="29dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_cross"
+                android:text="✖"
                 app:layout_constraintBottom_toBottomOf="@id/b3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.937"
@@ -197,7 +197,7 @@
                 android:layout_height="59dp"
                 android:layout_marginTop="8dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/skybluesimplesqaure"
+                android:src="@drawable/rec_noti"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/b3" />
@@ -220,12 +220,12 @@
                 app:layout_constraintVertical_bias="0.621" />
 
 
-            <ImageView
+            <TextView
                 android:id="@+id/close4"
                 android:layout_width="27dp"
                 android:layout_height="29dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_cross"
+                android:text="✖"
                 app:layout_constraintBottom_toBottomOf="@id/sky4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.937"
@@ -239,7 +239,7 @@
                 android:layout_height="59dp"
                 android:layout_marginTop="8dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/skybluesimplesqaure"
+                android:src="@drawable/rec_noti"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sky4" />
@@ -262,12 +262,12 @@
                 app:layout_constraintVertical_bias="0.705" />
 
 
-            <ImageView
+            <TextView
                 android:id="@+id/close5"
                 android:layout_width="27dp"
                 android:layout_height="29dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_cross"
+                android:text="✖"
                 app:layout_constraintBottom_toBottomOf="@id/sky5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.937"
