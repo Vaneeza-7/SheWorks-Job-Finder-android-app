@@ -129,6 +129,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/forgotpwd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/emblema_one"
@@ -161,6 +162,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

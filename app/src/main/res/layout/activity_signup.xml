@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup">
+    tools:context=".SignupActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -309,17 +309,16 @@
                 />
 
             <Button
-                android:id="@+id/login"
+                android:id="@+id/signUp"
                 android:layout_width="160dp"
                 android:layout_height="56dp"
                android:layout_marginTop="30dp"
                 android:gravity="center"
-                android:text="SignUp"
+                android:text="Sign Up"
                 android:onClick="signup"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:backgroundTint="@color/iconSelectedColor"
                 android:textSize="20dp"
-                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView8" />
@@ -335,7 +334,7 @@
                 android:textSize="13sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/login" />
+                app:layout_constraintTop_toBottomOf="@id/signUp" />
 
 
 

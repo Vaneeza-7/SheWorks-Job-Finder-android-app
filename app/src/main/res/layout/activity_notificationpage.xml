@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".notificationpage">
+    tools:context=".NotificationActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,7 +49,8 @@
                 android:layout_height="42dp"
                 android:layout_marginEnd="32dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/mainbell"
+                android:src="@drawable/main_bell"
+                app:tint="@color/iconSelectedColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/title"
                 app:layout_constraintBottom_toBottomOf="@id/title"/>
@@ -70,12 +71,11 @@
 
             <ImageView
                 android:id="@+id/b1"
-                android:layout_width="418dp"
+                android:layout_width="match_parent"
                 android:layout_height="59dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/skybluesimplesqaure"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                android:scaleType="centerCrop"
+                android:src="@drawable/square_rounded"
+                android:backgroundTint="@color/iconSelectedColor"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/mes"
                 app:layout_constraintBottom_toBottomOf="@id/mes"/>
@@ -115,8 +115,8 @@
                 android:layout_width="418dp"
                 android:layout_height="59dp"
                 android:layout_marginTop="240dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/skybluesimplesqaure"
+                android:scaleType="centerCrop"
+                android:src="@drawable/square_rounded"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.571"
                 app:layout_constraintStart_toStartOf="parent"
@@ -129,9 +129,10 @@
                 android:layout_height="34dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:text="Job Alert: Congratulations! Your job application has been successfully submitted."
+                android:text="Job Alert: Hurray! Your job application has been successfully submitted."
                 android:textColor="#000000"
                 android:textSize="15sp"
+                android:background="@drawable/square_rounded"
                 app:layout_constraintBottom_toBottomOf="@id/sky2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.344"
@@ -156,8 +157,8 @@
                 android:layout_width="418dp"
                 android:layout_height="59dp"
                 android:layout_marginTop="8dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/skybluesimplesqaure"
+                android:scaleType="centerCrop"
+                android:src="@drawable/square_rounded"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sky2" />
@@ -196,8 +197,8 @@
                 android:layout_width="418dp"
                 android:layout_height="59dp"
                 android:layout_marginTop="8dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/skybluesimplesqaure"
+                android:scaleType="centerCrop"
+                android:src="@drawable/square_rounded"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/b3" />
@@ -238,8 +239,8 @@
                 android:layout_width="418dp"
                 android:layout_height="59dp"
                 android:layout_marginTop="8dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/skybluesimplesqaure"
+                android:scaleType="centerCrop"
+                android:src="@drawable/square_rounded"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sky4" />

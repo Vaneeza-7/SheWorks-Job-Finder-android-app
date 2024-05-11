@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".verifyNumber">
+    tools:context=".VerifyNumberActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -59,6 +59,7 @@
 
 
             <TextView
+                android:id="@+id/textbody"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
@@ -77,18 +78,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
                 android:fontWeight="800"
                 android:text="+92 3212242022"
                 android:textColor="@color/iconSelectedColor"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.84"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.124" />
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toEndOf="@id/textbody"
+                app:layout_constraintTop_toTopOf="@id/textbody" />
 
 
             <ImageView
@@ -98,8 +95,9 @@
                 android:layout_marginTop="176dp"
                 android:layout_marginEnd="236dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/hollowcirclepgreen"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/circle_outline_svgrepo_com"
+                app:layout_constraintStart_toEndOf="@id/hollowcircle1"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -108,9 +106,10 @@
                 android:layout_height="62dp"
                 android:layout_marginTop="176dp"
                 android:layout_marginEnd="295dp"
+                android:layout_marginStart="5dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/hollowcirclepgreen"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/circle_outline_svgrepo_com"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -120,8 +119,9 @@
                 android:layout_marginTop="176dp"
                 android:layout_marginEnd="178dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/hollowcirclepgreen"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/circle_outline_svgrepo_com"
+                app:layout_constraintStart_toEndOf="@id/hollowcircle"
+                android:layout_marginStart="5dp"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -132,8 +132,9 @@
                 android:layout_marginTop="176dp"
                 android:layout_marginEnd="119dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/hollowcirclepgreen"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/circle_outline_svgrepo_com"
+                app:layout_constraintStart_toEndOf="@id/hollowcircle2"
+                android:layout_marginStart="5dp"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -144,8 +145,20 @@
                 android:layout_marginTop="176dp"
                 android:layout_marginEnd="58dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/hollowcirclepgreen"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/circle_outline_svgrepo_com"
+                app:layout_constraintStart_toEndOf="@id/hollowcircle3"
+                android:layout_marginStart="5dp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/hollowcircle6"
+                android:layout_width="53dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="176dp"
+                android:layout_marginStart="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/circle_outline_svgrepo_com"
+                app:layout_constraintStart_toEndOf="@id/hollowcircle4"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
@@ -153,9 +166,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Verify"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:layout_gravity="center"
-                android:layout_margin="30dp"
                 android:layout_marginTop="18dp"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/iconSelectedColor"
@@ -194,12 +206,14 @@
 
             <ImageView
                 android:id="@+id/square4"
-                android:layout_width="501dp"
-                android:layout_height="452dp"
+                android:layout_width="match_parent"
+                android:layout_height="380dp"
                 android:layout_marginTop="378dp"
-                android:layout_marginEnd="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/bluesimplesquare"
+                android:background="@drawable/square_rounded"
+                android:backgroundTint="@color/she_logo_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -208,7 +222,8 @@
                 android:id="@+id/button1"
                 android:layout_width="68dp"
                 android:layout_height="67dp"
-                android:background="@drawable/roundsquarecalc"
+                android:background="@drawable/square_rounded"
+                android:backgroundTint="@color/iconSelectedColor"
                 android:text="1"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
@@ -225,7 +240,8 @@
                 android:id="@+id/button2"
                 android:layout_width="68dp"
                 android:layout_height="67dp"
-                android:background="@drawable/roundsquarecalc"
+                android:background="@drawable/square_rounded"
+                android:backgroundTint="@color/iconSelectedColor"
                 android:text="2"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
@@ -242,7 +258,8 @@
                 android:id="@+id/button3"
                 android:layout_width="68dp"
                 android:layout_height="67dp"
-                android:background="@drawable/roundsquarecalc"
+                android:background="@drawable/square_rounded"
+                android:backgroundTint="@color/iconSelectedColor"
                 android:text="3"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
@@ -259,7 +276,8 @@
                 android:id="@+id/button4"
                 android:layout_width="68dp"
                 android:layout_height="67dp"
-                android:background="@drawable/roundsquarecalc"
+                android:background="@drawable/square_rounded"
+                android:backgroundTint="@color/iconSelectedColor"
                 android:text="4"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
@@ -276,7 +294,8 @@
                 android:id="@+id/button5"
                 android:layout_width="68dp"
                 android:layout_height="67dp"
-                android:background="@drawable/roundsquarecalc"
+                android:background="@drawable/square_rounded"
+                android:backgroundTint="@color/iconSelectedColor"
                 android:text="5"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
@@ -293,7 +312,8 @@
                 android:id="@+id/button6"
                 android:layout_width="68dp"
                 android:layout_height="67dp"
-                android:background="@drawable/roundsquarecalc"
+                android:background="@drawable/square_rounded"
+                android:backgroundTint="@color/iconSelectedColor"
                 android:text="6"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
@@ -310,7 +330,8 @@
                 android:id="@+id/button7"
                 android:layout_width="68dp"
                 android:layout_height="67dp"
-                android:background="@drawable/roundsquarecalc"
+                android:background="@drawable/square_rounded"
+                android:backgroundTint="@color/iconSelectedColor"
                 android:text="7"
                 android:onClick="cross"
                 android:textColor="#FFFFFF"
@@ -329,7 +350,8 @@
                 android:layout_width="68dp"
                 android:layout_height="67dp"
                 android:layout_marginBottom="88dp"
-                android:background="@drawable/roundsquarecalc"
+                android:background="@drawable/square_rounded"
+                android:backgroundTint="@color/iconSelectedColor"
                 android:text="8"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
@@ -344,7 +366,8 @@
                 android:id="@+id/button9"
                 android:layout_width="68dp"
                 android:layout_height="67dp"
-                android:background="@drawable/roundsquarecalc"
+                android:background="@drawable/square_rounded"
+                android:backgroundTint="@color/iconSelectedColor"
                 android:text="9"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
@@ -361,7 +384,8 @@
                 android:id="@+id/button0"
                 android:layout_width="68dp"
                 android:layout_height="67dp"
-                android:background="@drawable/roundsquarecalc"
+                android:background="@drawable/square_rounded"
+                android:backgroundTint="@color/iconSelectedColor"
                 android:text="0"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup">
+    tools:context=".EditProfile">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -116,7 +116,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:background="@drawable/edit_text_background"
                 android:backgroundTint="#FFFFFF"
-                android:hint=" Enter Username"
+                android:hint="Laiba Tahreem Ahmad"
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:textColor="#CE000000"
@@ -148,7 +148,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:background="@drawable/edit_text_background"
                 android:backgroundTint="#FFFFFF"
-                android:hint=" Enter Email"
+                android:hint="laiba@gmail.com"
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:textColor="#CE000000"
@@ -180,7 +180,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:background="@drawable/edit_text_background"
                 android:backgroundTint="#FFFFFF"
-                android:hint=" Enter Contact Number"
+                android:hint="+92 123456789"
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:textColor="#CE000000"
@@ -212,7 +212,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:background="@drawable/edit_text_background"
                 android:backgroundTint="#FFFFFF"
-                android:hint=" Enter Your Country Name"
+                android:hint="Palestine"
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:textColor="#CE000000"
@@ -244,7 +244,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:background="@drawable/edit_text_background"
                 android:backgroundTint="#FFFFFF"
-                android:hint=" Enter Your City Name"
+                android:hint="Gaza City"
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:textColor="#CE000000"
@@ -276,7 +276,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:background="@drawable/edit_text_background"
                 android:backgroundTint="#FFFFFF"
-                android:hint=" Hiring / Seeking Job"
+                android:hint="Seeking Job"
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:textColor="#CE000000"
@@ -367,7 +367,7 @@
                 android:gravity="center"
                 android:text="Update"
                 android:onClick="signup"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:backgroundTint="@color/iconSelectedColor"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -387,11 +387,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/login" />
-
-
-
-
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
