@@ -16,7 +16,7 @@ class NewChatActivity : AppCompatActivity() {
             finish()
         }
 
-        val chats = listOf(
+       /* val chats = listOf(
             User(
                 "Sajida Naeem", R.drawable.baseline_person_24),
             User(
@@ -46,6 +46,6 @@ class NewChatActivity : AppCompatActivity() {
         val recylerView = findViewById<RecyclerView>(R.id.recyclerView)
         recylerView.adapter = ChatAdapter(chats)
         recylerView.layoutManager = LinearLayoutManager(this)
-
+*/
     }
 }

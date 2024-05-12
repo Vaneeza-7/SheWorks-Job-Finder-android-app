@@ -6,14 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.toolbox.StringRequest
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.robertlevonyan.views.customfloatingactionbutton.FloatingActionButton
+import org.json.JSONObject
+import java.lang.reflect.Method
 
 class HomeFragment : Fragment(R.layout.fragment_home){
+    val mAuth = FirebaseAuth.getInstance()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -56,8 +62,10 @@ class HomeFragment : Fragment(R.layout.fragment_home){
                 }
                 R.id.logout_item -> {
                     // Start the activity or fragment for Logout
-                    val intent = Intent(requireContext(), LoginActivity::class.java)
-                    startActivity(intent)
+                    mAuth.signOut()
+                    Toast.makeText(context, "Logged out successfully", Toast.LENGTH_SHORT).show()
+                    //call finish() on the activity
+                    activity?.finish()
                 }
                 R.id.feedback -> {
                     // Start the activity or fragment for Logout

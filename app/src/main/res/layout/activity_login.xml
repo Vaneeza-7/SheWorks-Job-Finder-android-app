@@ -73,13 +73,13 @@
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/emblema_one"
             android:padding="10dp"
-            android:text="Username"
+            android:text="Email"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="normal" />
 
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/useremail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -89,8 +89,8 @@
             android:background="@drawable/edit_text_background"
             android:backgroundTint="#FFFFFF"
             android:drawableLeft="@drawable/baseline_person_24"
-            android:hint=" Enter Username"
-            android:inputType="textPersonName"
+            android:hint=" Enter Email"
+            android:inputType="textEmailAddress"
             android:padding="10dp"
             android:textColor="#CE000000"
             android:textColorHint="#6B000000"

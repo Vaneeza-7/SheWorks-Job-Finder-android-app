@@ -43,9 +43,10 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
             startActivity(intent);
         }
 
+/*
 val chatList = listOf(
             User(
-                "Vaneeza Ahmad", R.drawable.baseline_person_24),
+                "Ali Khan", R.drawable.baseline_person_24),
             User(
                 "Sara Ali", R.drawable.woman_profile),
             User(
@@ -61,6 +62,7 @@ val chatList = listOf(
         val recyclerView = view.findViewById<RecyclerView>(R.id.chatsRecyclerView)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
+*/
 
     }
 

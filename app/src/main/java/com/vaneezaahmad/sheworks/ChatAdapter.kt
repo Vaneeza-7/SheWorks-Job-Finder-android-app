@@ -23,8 +23,8 @@ class ChatAdapter (val chats: List<User>) : RecyclerView.Adapter<ChatAdapter.Cha
 
     override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
         val chat = chats[position]
-        holder.name.text = chat.name
-        Glide.with(holder.profileImage.context).load(chat.image).centerCrop().into(holder.profileImage)
+        holder.name.text = chat.username
+        Glide.with(holder.profileImage.context).load(chat.profileImage).centerCrop().into(holder.profileImage)
 
         holder.relativeLayout.setOnClickListener {
             val intent = Intent(holder.relativeLayout.context, MessageActivity::class.java)

@@ -1,9 +1,16 @@
 package com.vaneezaahmad.sheworks
 
 data class User(
-    val name: String,
-    val image: Int
+    val uid: String,
+    val username: String,
+    val email: String,
+    val contactNumber: String,
+    val country: String,
+    val city: String,
+    val useCase: String,
+    val password: String,
+    val profileImage: String
 )
 {
-    constructor() : this("", 0)
+    constructor() : this("", "", "", "", "", "", "", "", "")
 }

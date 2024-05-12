@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "542726266945",
+    "project_id": "sheworks-d2d17",
+    "storage_bucket": "sheworks-d2d17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542726266945:android:115c5256403c711bb5a6c0",
+        "android_client_info": {
+          "package_name": "com.vaneezaahmad.sheworks"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgomnIaItzGMJZ3Mr5h0xLBiaRyob0LaY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
