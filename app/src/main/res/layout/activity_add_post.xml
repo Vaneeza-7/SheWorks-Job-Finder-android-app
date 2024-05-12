@@ -60,9 +60,9 @@
         />
 
     <TextView
+        android:id="@+id/addImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageText"
         android:text="Add Image"
         android:textSize="20sp"
         android:textColor="#FFFFFF"
@@ -70,7 +70,9 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintTop_toBottomOf="@id/camera"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="#9F999B"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -79,7 +81,7 @@
         android:background="@drawable/searchview_background"
         android:padding="10dp"
         android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/imageText"
+        app:layout_constraintTop_toBottomOf="@id/addImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -89,6 +91,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/titleEditText"
             android:hint="Share your thoughts"
+            android:textColorHint="#7A7A7C"
             android:inputType="text"
             android:padding="16dp"
             android:drawableStart="@drawable/paper_plane_top_svgrepo_com"

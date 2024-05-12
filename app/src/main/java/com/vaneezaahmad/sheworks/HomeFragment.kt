@@ -1,5 +1,6 @@
 package com.vaneezaahmad.sheworks
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -82,7 +84,6 @@ class HomeFragment : Fragment(R.layout.fragment_home){
 
         val fab = view.findViewById<FloatingActionButton>(R.id.newPost)
         fab.setOnClickListener {
-            // Open new post activity
             val intent = Intent(context, AddPostActivity::class.java)
             startActivity(intent);
         }
