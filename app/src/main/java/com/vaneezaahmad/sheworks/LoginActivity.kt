@@ -51,5 +51,11 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val guest = findViewById<TextView>(R.id.guest)
+        guest.setOnClickListener {
+            val intent = Intent(this, GuestActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
