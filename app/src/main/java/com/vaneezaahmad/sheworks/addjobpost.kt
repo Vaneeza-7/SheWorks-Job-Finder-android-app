@@ -91,6 +91,7 @@ class addjobpost : AppCompatActivity() {
             if (jobTitleText.isEmpty() || companyNameText.isEmpty() || jobDescription.isEmpty() || qualification.isEmpty() || specifications.isEmpty() || skills.isEmpty() || responsibilities.isEmpty() || salaryRange.isEmpty() || benefits.isEmpty() || jobLocation.isEmpty() || jobTypeTimings.isEmpty() || contactInformation.isEmpty()) {
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
             } else {
+                addJobPost(jobTitleText, companyNameText, jobDescription, qualification, specifications, skills, responsibilities, salaryRange, benefits, jobLocation, jobTypeTimings, contactInformation);
 
             }
         }

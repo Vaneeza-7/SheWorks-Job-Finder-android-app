@@ -13,8 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
+import com.bumptech.glide.Glide
 
-class guestdashboardadapter(private val jobList: List<Job>) : RecyclerView.Adapter<guestdashboardadapter.ViewHolder>() {
+class guestdashboardadapter(private var jobList: List<Job>) : RecyclerView.Adapter<guestdashboardadapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.job_item, parent, false)
@@ -28,8 +29,8 @@ class guestdashboardadapter(private val jobList: List<Job>) : RecyclerView.Adapt
         holder.companyName.text = currentItem.company
         holder.salaryRange.text = currentItem.salary
         holder.jobLocation.text = currentItem.location
-        holder.jobTypeTimings.text = "${currentItem.jobType} | ${currentItem.timings}"
-        holder.companyLogo.setImageResource(currentItem.logo)
+        holder.jobTypeTimings.text = currentItem.jobType
+        Glide.with(holder.companyLogo.context).load(currentItem.logo).into(holder.companyLogo)
         holder.viewDetails.setOnClickListener {
             Toast.makeText(
                 holder.apply.context,
@@ -61,5 +62,11 @@ class guestdashboardadapter(private val jobList: List<Job>) : RecyclerView.Adapt
         val companyLogo: ImageView = itemView.findViewById(R.id.company_logo)
         val viewDetails: Button = itemView.findViewById(R.id.view_details_button)
         val apply: Button = itemView.findViewById(R.id.apply_button)
+        val posted_time: TextView = itemView.findViewById(R.id.posted_time)
+    }
+
+    fun filterList(filteredList: List<Job>) {
+        jobList = filteredList
+        notifyDataSetChanged()
     }
 }

@@ -9,8 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import java.util.concurrent.TimeUnit
 
-class JobAdapter(private val jobList: List<Job>) : RecyclerView.Adapter<JobAdapter.JobViewHolder>() {
+class JobAdapter(private var jobList: List<Job>) : RecyclerView.Adapter<JobAdapter.JobViewHolder>() {
 
     class JobViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val jobTitle: TextView = itemView.findViewById(R.id.job_title)
@@ -19,8 +21,9 @@ class JobAdapter(private val jobList: List<Job>) : RecyclerView.Adapter<JobAdapt
         val jobLocation: TextView = itemView.findViewById(R.id.job_location)
         val jobTypeTimings : TextView = itemView.findViewById(R.id.job_type_timings)
         val companyLogo: ImageView = itemView.findViewById(R.id.company_logo)
-        val viewDetais : Button = itemView.findViewById(R.id.view_details_button)
+        val viewDetails : Button = itemView.findViewById(R.id.view_details_button)
         val apply : Button = itemView.findViewById(R.id.apply_button)
+        val posted_time : TextView = itemView.findViewById(R.id.posted_time)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobViewHolder {
@@ -34,20 +37,30 @@ class JobAdapter(private val jobList: List<Job>) : RecyclerView.Adapter<JobAdapt
         holder.companyName.text = currentItem.company
         holder.salaryRange.text = currentItem.salary
         holder.jobLocation.text = currentItem.location
-        holder.jobTypeTimings.text = currentItem.jobType + " | " + currentItem.timings
-        holder.companyLogo.setImageResource(currentItem.logo)
-        holder.viewDetais.setOnClickListener {
+        holder.jobTypeTimings.text = currentItem.jobType
+        holder.posted_time.text = "Posted on " + currentItem.createdAt
+        Glide.with(holder.companyLogo.context).load(currentItem.logo).into(holder.companyLogo)
+        holder.viewDetails.setOnClickListener {
+            //put id extra
+            val intent = Intent(holder.viewDetails.context, JobDetailsActivity::class.java);
+            intent.putExtra("jobId", currentItem.id);
+            startActivity(holder.viewDetails.context, intent, null)
 
-            Intent(holder.viewDetais.context, JobDetailsActivity::class.java).also {
-                startActivity(holder.viewDetais.context, it, null)
             }
-        }
+
         holder.apply.setOnClickListener {
-            Intent(holder.apply.context, ApplyJobActivity::class.java).also {
-                startActivity(holder.apply.context, it, null)
+            //put id extra
+            val intent = Intent(holder.apply.context, ApplyJobActivity::class.java);
+            intent.putExtra("jobId", currentItem.id);
+            startActivity(holder.apply.context, intent, null)
             }
         }
-    }
 
     override fun getItemCount() = jobList.size
+
+    fun filterList(filteredList: List<Job>) {
+        jobList = filteredList
+        notifyDataSetChanged()
+    }
+
 }

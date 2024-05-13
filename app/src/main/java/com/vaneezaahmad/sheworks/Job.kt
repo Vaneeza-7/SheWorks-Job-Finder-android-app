@@ -1,13 +1,23 @@
 package com.vaneezaahmad.sheworks
 
 data class Job(
+    val id: Int,
     val title: String,
     val company: String,
+    val description: String,
+    val qualifications: String,
+    val specifications: String,
+    val skills: String,
+    val responsibilities: String,
     val salary: String,
-    val jobType: String,
+    val benefits: String,
     val location: String,
+    val jobType: String,
+    val contactInfo: String,
+    val logo: String,
     val timings: String,
-    val logo: Int
+    val createdAt: String
+
 ) {
     /*companion object {
         fun getJobs(): List<Job> {

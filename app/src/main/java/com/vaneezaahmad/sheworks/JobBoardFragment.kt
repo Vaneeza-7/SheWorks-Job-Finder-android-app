@@ -1,5 +1,6 @@
 package com.vaneezaahmad.sheworks
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,12 +12,18 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.robertlevonyan.views.customfloatingactionbutton.FloatingActionButton
+import org.json.JSONException
+import org.json.JSONObject
 
 class JobBoardFragment : Fragment(R.layout.fragment_job_board) {
  val mAuth = FirebaseAuth.getInstance()
+    var jobList = ArrayList<Job>()
+    var adapter = JobAdapter(jobList)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -84,68 +91,85 @@ class JobBoardFragment : Fragment(R.layout.fragment_job_board) {
             startActivity(intent);
         }
 
-        val jobList = listOf(
-            Job(
-                "Software Engineer",
-                "Google",
-                "$100k",
-                "Full Time",
-                "Mountain View, CA",
-                "40 hrs/week",
-                R.drawable.google_color_svgrepo_com
-            ),
-            Job(
-                "Product Manager",
-                "Facebook",
-                "$120k",
-                "Remote",
-                "Menlo Park, CA",
-                "17 hrs/week",
-                R.drawable.facebook
-            ),
-            Job(
-                "UX Designer",
-                "Systems Private Limited",
-                "$110k",
-                "Part Time",
-                "Cupertino, CA",
-                "9-5 Mon-Fri",
-                R.drawable.company_default_logo
-            ),
-            Job(
-                "Data Scientist",
-                "Amazon",
-                "$130k",
-                "Full Time",
-                "Seattle, WA",
-                "6 days/week",
-                R.drawable.amazon
-            ),
-            Job(
-                "Software Engineer",
-                "Microsoft",
-                "$110k",
-                "Full Time",
-                "Redmond, WA",
-                "8 hrs/day",
-                R.drawable.microsoft_logo
-            ),
-            Job(
-                "Software Engineer",
-                "Twitter",
-                "$120k",
-                "Full Time",
-                "Los Gatos, CA",
-                "9am-5am",
-                R.drawable.twitter_logo
-            )
-        )
-
-        val adapter = JobAdapter(jobList)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
 
+
+        val searchView = view.findViewById<android.widget.SearchView>(R.id.searchView)
+        searchView.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                val sharedPreferences = requireContext().getSharedPreferences("recent_searches", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                val searches = sharedPreferences.getStringSet("searches", mutableSetOf()) ?: mutableSetOf()
+                searches.add(query)
+                editor.putStringSet("searches", searches)
+                editor.apply()
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val filteredList = jobList.filter { it.title.contains(newText ?: "", ignoreCase = true) }
+                adapter.filterList(filteredList)
+                return false
+            }
+        })
+
+    }
+
+    fun getJobs()
+    {
+        val url = requireContext().getString(R.string.IP) + "getJobs.php"
+        val stringRequest = object : StringRequest(Method.GET, url,
+            { response ->
+                try {
+                    val obj = JSONObject(response)
+                    if (obj.getInt("status") == 1) {
+                        val jsonArray = obj.getJSONArray("data")
+                        for (i in 0 until jsonArray.length()) {
+                            val job = jsonArray.getJSONObject(i)
+                            val jobObject = Job(
+                                id = job.getInt("id"),
+                                title = job.getString("job_title"),
+                                company = job.getString("company_name"),
+                                description = job.getString("job_description"),
+                                qualifications = job.getString("qualifications"),
+                                specifications = job.getString("specifications"),
+                                skills = job.getString("skills"),
+                                responsibilities = job.getString("responsibilities"),
+                                salary = job.getString("salary_range"),
+                                benefits = job.getString("benefits"),
+                                location = job.getString("job_location"),
+                                jobType = job.getString("job_type_timings"),
+                                contactInfo = job.getString("contact_information"),
+                                logo = job.getString("image_url"),
+                                timings = job.getString("job_type_timings"),
+                                createdAt = job.getString("created_at")
+                            )
+                            jobList.add(jobObject)
+                        }
+
+                        adapter.notifyDataSetChanged()
+                        Toast.makeText(context, "Jobs loaded successfully", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(context, "Failed to get jobs", Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+            },
+            { error ->
+                Toast.makeText(context, "Volley error $error", Toast.LENGTH_SHORT).show()
+            })
+        {}
+        Volley.newRequestQueue(requireContext()).add(stringRequest)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        jobList.clear()
+        getJobs()
     }
 
 }
