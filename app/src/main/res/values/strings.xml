@@ -5,5 +5,5 @@
     <string name="calendar">Calendar</string>
     <string name="chat">Chat</string>
     <string name="profile">Profile</string>
-    <string name="IP">http://192.168.100.38/sheworks/</string>
+    <string name="IP">http://172.16.107.184/sheworks/</string>
 </resources>

@@ -152,7 +152,7 @@ class HomeFragment : Fragment(R.layout.fragment_home){
                 }
             },
             { error ->
-                Toast.makeText(context, error.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, error.message ?: "An error occurred", Toast.LENGTH_SHORT).show()
             })
         {}
         Volley.newRequestQueue(requireContext()).add(request)

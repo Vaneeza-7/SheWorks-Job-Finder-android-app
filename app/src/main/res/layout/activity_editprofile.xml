@@ -16,38 +16,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-                <RelativeLayout
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Toolbar
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:id="@+id/toolbar"
+                    android:background="@color/colorPrimaryDark"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:title="Job Details"
+                    app:titleTextColor="@color/white"
+                    app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintVertical_bias="0.0" />
 
-                    <Toolbar
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/toolbar"
-                        android:background="@color/colorPrimaryDark"
-                        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                        app:title="Job Details"
-                        app:titleTextColor="@color/white"
-                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintVertical_bias="0.0" />
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/back_button"
-                        android:layout_margin="15dp"
-                        android:padding="5dp"
-                        android:src="@drawable/baseline_arrow_back_ios_24"
-                        android:background="@color/colorPrimaryDark"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/back_button"
+                    android:layout_margin="15dp"
+                    android:padding="5dp"
+                    android:src="@drawable/baseline_arrow_back_ios_24"
+                    android:background="@color/colorPrimaryDark"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
 
-                </RelativeLayout>
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/title1"

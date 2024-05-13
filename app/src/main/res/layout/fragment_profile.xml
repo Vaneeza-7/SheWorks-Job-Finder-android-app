@@ -48,148 +48,151 @@
 
         <!-- Screen content -->
         <!-- Use app:layout_behavior="@string/appbar_scrolling_view_behavior" to fit below top app bar -->
-<androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-        <RelativeLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <!-- Profile image and name -->
-            <LinearLayout
-                android:id="@+id/headerLinear"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_margin="10dp"
-                android:background="@drawable/searchview_background"
-                android:backgroundTint="@color/iconSelectedColor">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/pic"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_centerInParent="true"
-                        android:layout_marginTop="30dp"
-                        android:src="@drawable/woman_profile"
-                        app:civ_border_color="@color/colorPrimaryDark"
-                        app:civ_circle_background_color="@color/white" />
-
-                    <Button
-                        style="?attr/materialIconButtonFilledStyle"
-                        android:id="@+id/iconButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:contentDescription="editpic"
-                        android:backgroundTint="@color/colorAccent"
-                        app:icon="@drawable/baseline_edit_24"
-                        app:iconTint="#FFFFFF"
-                        android:layout_marginTop="-40dp"
-                        android:layout_marginEnd="-15dp"
-                        android:layout_below="@+id/pic"
-                        android:layout_alignEnd="@+id/pic"
-                    />
-                </RelativeLayout>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Laiba Tahreem Ahmad"
-                    android:fontFamily="@font/emblema_one"
-                    android:textSize="24sp"
-                    android:textColor="@android:color/white" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text="Requirements Engineer"
-                    android:textColor="@android:color/white"
-                    android:padding="5dp"
-                    android:textSize="16sp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:padding="10dp">
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_call_24"
-                    android:background="@drawable/circle_filled"
-                    android:backgroundTint="@color/colorAccent"
-                    android:layout_margin="10dp"
-                    android:layout_marginTop="20dp"
-                    android:padding="10dp"/>
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_email_24"
-                    android:background="@drawable/circle_filled"
-                    android:backgroundTint="@color/colorAccent"
-                    android:layout_margin="10dp"
-                    android:padding="10dp"/>
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_location_pin_24"
-                    android:background="@drawable/circle_filled"
-                    android:backgroundTint="@color/colorAccent"
-                    android:layout_margin="10dp"
-                    android:padding="10dp"/>
-                </LinearLayout>
-
-            </LinearLayout>
-
-
-            <com.google.android.material.tabs.TabLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tabs"
-                android:layout_below="@id/headerLinear"
-                app:tabContentStart="56dp"
-                android:background="#F6BECE"
-                app:tabIndicatorColor="@color/iconSelectedColor"
-                app:tabSelectedTextColor="@color/iconSelectedColor"
-                app:tabTextColor="@color/white"
-                app:tabRippleColor="@color/she_logo_background"
-                app:tabIconTint="@color/white"
-                app:tabGravity="fill"
-                >
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Overview"
-                    android:icon="@drawable/baseline_person_24"
-                    />
-
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Details"
-                    android:icon="@drawable/briefcase_svgrepo_com"
-                    />
-
-            </com.google.android.material.tabs.TabLayout>
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPager"
+            android:layout_height="match_parent">
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/tabs"/>
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        </RelativeLayout>
-</androidx.core.widget.NestedScrollView>
+                <!-- Profile image and name -->
+                <LinearLayout
+                    android:id="@+id/headerLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/searchview_background"
+                    android:backgroundTint="@color/iconSelectedColor">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/pic"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="30dp"
+                            android:src="@drawable/woman_profile"
+                            app:civ_border_color="@color/colorPrimaryDark"
+                            app:civ_circle_background_color="@color/white" />
+
+                        <Button
+                            style="?attr/materialIconButtonFilledStyle"
+                            android:id="@+id/iconButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="editpic"
+                            android:backgroundTint="@color/colorAccent"
+                            app:icon="@drawable/baseline_edit_24"
+                            app:iconTint="#FFFFFF"
+                            android:layout_marginTop="-40dp"
+                            android:layout_marginEnd="-15dp"
+                            android:layout_below="@+id/pic"
+                            android:layout_alignEnd="@+id/pic"
+                            />
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Laiba Tahreem Ahmad"
+                        android:fontFamily="@font/emblema_one"
+                        android:textSize="24sp"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/profession"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="Requirements Engineer"
+                        android:textColor="@android:color/white"
+                        android:padding="5dp"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:padding="10dp">
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baseline_call_24"
+                            android:background="@drawable/circle_filled"
+                            android:backgroundTint="@color/colorAccent"
+                            android:layout_margin="10dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"/>
+
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baseline_email_24"
+                            android:background="@drawable/circle_filled"
+                            android:backgroundTint="@color/colorAccent"
+                            android:layout_margin="10dp"
+                            android:padding="10dp"/>
+
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baseline_location_pin_24"
+                            android:background="@drawable/circle_filled"
+                            android:backgroundTint="@color/colorAccent"
+                            android:layout_margin="10dp"
+                            android:padding="10dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <com.google.android.material.tabs.TabLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tabs"
+                    android:layout_below="@id/headerLinear"
+                    app:tabContentStart="56dp"
+                    android:background="#F6BECE"
+                    app:tabIndicatorColor="@color/iconSelectedColor"
+                    app:tabSelectedTextColor="@color/iconSelectedColor"
+                    app:tabTextColor="@color/white"
+                    app:tabRippleColor="@color/she_logo_background"
+                    app:tabIconTint="@color/white"
+                    app:tabGravity="fill"
+                    >
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Overview"
+                        android:icon="@drawable/baseline_person_24"
+                        />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Details"
+                        android:icon="@drawable/briefcase_svgrepo_com"
+                        />
+
+                </com.google.android.material.tabs.TabLayout>
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tabs"/>
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
         <!-- NavigationView -->
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigationView"

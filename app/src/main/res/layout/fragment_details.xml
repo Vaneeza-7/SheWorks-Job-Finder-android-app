@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
     android:background="@color/white"
     >
 <RelativeLayout
@@ -25,6 +27,7 @@
         android:textColor="@color/black"
         android:textStyle="bold" />
     <ImageButton
+        android:id="@+id/editEducation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/baseline_edit_24"
@@ -63,6 +66,7 @@
         android:layout_below="@+id/educationText"/>
 
     <ImageButton
+        android:id="@+id/editExperience"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/baseline_edit_24"
@@ -106,6 +110,7 @@
         android:textStyle="bold" />
 
     <ImageButton
+        android:id="@+id/editInterests"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/baseline_edit_24"
@@ -148,17 +153,18 @@
         android:textColor="@color/black"
         android:textStyle="bold" />
 
-     <ImageButton
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:src="@drawable/baseline_edit_24"
-         android:background="@color/white"
-         android:layout_alignParentEnd="true"
-         android:layout_alignTop="@id/projectsTitle"
-         android:layout_alignBottom="@id/projectsTitle"
-         android:padding="10dp"
-         android:layout_below="@+id/interestsText"
-         />
+    <ImageButton
+        android:id="@+id/editProjects"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_edit_24"
+        android:background="@color/white"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/projectsTitle"
+        android:layout_alignBottom="@id/projectsTitle"
+        android:padding="10dp"
+        android:layout_below="@+id/interestsText"
+        />
 
     <TextView
         android:id="@+id/projectsText"

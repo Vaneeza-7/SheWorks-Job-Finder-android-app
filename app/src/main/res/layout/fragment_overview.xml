@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/aboutmeTitle"
@@ -21,6 +25,7 @@
         android:textStyle="bold" />
 
     <ImageButton
+        android:id="@+id/editAboutMe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/baseline_edit_24"
@@ -57,6 +62,7 @@
         android:layout_below="@+id/aboutmeText"/>
 
     <ImageButton
+        android:id="@+id/editSkills"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/baseline_edit_24"
@@ -167,77 +173,78 @@
 
 
 
-   <!-- <TextView
-        android:id="@+id/skillsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text="Java, Kotlin, Python, C++, HTML, CSS, JavaScript, SQL"
-        android:textColor="@color/black"
-        android:layout_below="@+id/skillsTitle"
-        android:padding="10dp"
-        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+    <!-- <TextView
+         android:id="@+id/skillsText"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="left"
+         android:text="Java, Kotlin, Python, C++, HTML, CSS, JavaScript, SQL"
+         android:textColor="@color/black"
+         android:layout_below="@+id/skillsTitle"
+         android:padding="10dp"
+         android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
 
-    <TextView
-        android:id="@+id/projectsTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginTop="5dp"
-        android:text="Projects"
-        android:padding="10dp"
-        android:textStyle="bold"
-        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-        android:textColor="@color/black"
-        android:layout_below="@+id/skillsText"/>
+     <TextView
+         android:id="@+id/projectsTitle"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="left"
+         android:layout_marginTop="5dp"
+         android:text="Projects"
+         android:padding="10dp"
+         android:textStyle="bold"
+         android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+         android:textColor="@color/black"
+         android:layout_below="@+id/skillsText"/>
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_edit_24"
-        android:background="@color/she_logo_background"
-        android:layout_toEndOf="@id/projectsTitle"
-        android:layout_alignTop="@id/projectsTitle"
-        android:layout_alignBottom="@id/projectsTitle"
-        android:padding="10dp"
-        android:layout_below="@+id/skillsText"
-        />
+     <ImageButton
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:src="@drawable/baseline_edit_24"
+         android:background="@color/she_logo_background"
+         android:layout_toEndOf="@id/projectsTitle"
+         android:layout_alignTop="@id/projectsTitle"
+         android:layout_alignBottom="@id/projectsTitle"
+         android:padding="10dp"
+         android:layout_below="@+id/skillsText"
+         />
 
-    <TextView
-        android:id="@+id/projectsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text="SheLovesTech Android App, SheLovesTech Website"
-        android:textColor="@color/black"
-        android:layout_below="@+id/projectsTitle"
-        android:padding="10dp"
-        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+     <TextView
+         android:id="@+id/projectsText"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="left"
+         android:text="SheLovesTech Android App, SheLovesTech Website"
+         android:textColor="@color/black"
+         android:layout_below="@+id/projectsTitle"
+         android:padding="10dp"
+         android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
 
-    <TextView
-        android:id="@+id/contactTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginTop="5dp"
-        android:text="Contact"
-        android:padding="10dp"
-        android:textStyle="bold"
-        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-        android:textColor="@color/black"
-        android:layout_below="@+id/projectsText"/>
+     <TextView
+         android:id="@+id/contactTitle"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="left"
+         android:layout_marginTop="5dp"
+         android:text="Contact"
+         android:padding="10dp"
+         android:textStyle="bold"
+         android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+         android:textColor="@color/black"
+         android:layout_below="@+id/projectsText"/>
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_edit_24"
-        android:background="@color/she_logo_background"
-        android:layout_toEndOf="@id/contactTitle"
-        android:layout_alignTop="@id/contactTitle"
-        android:layout_alignBottom="@id/contactTitle"
-        android:padding="10dp"
-        android:layout_below="@+id/projectsText"
-        />-->
+     <ImageButton
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:src="@drawable/baseline_edit_24"
+         android:background="@color/she_logo_background"
+         android:layout_toEndOf="@id/contactTitle"
+         android:layout_alignTop="@id/contactTitle"
+         android:layout_alignBottom="@id/contactTitle"
+         android:padding="10dp"
+         android:layout_below="@+id/projectsText"
+         />-->
 
 
 </RelativeLayout>
+</androidx.core.widget.NestedScrollView>
