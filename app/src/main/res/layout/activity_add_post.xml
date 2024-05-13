@@ -93,6 +93,7 @@
             android:hint="Share your thoughts"
             android:textColorHint="#7A7A7C"
             android:inputType="text"
+            android:textColor="#000000"
             android:padding="16dp"
             android:drawableStart="@drawable/paper_plane_top_svgrepo_com"
             android:drawablePadding="10dp"

@@ -31,8 +31,8 @@ class PostsAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostsAd
 
     override fun onBindViewHolder(holder: PostsViewHolder, position: Int) {
         val post = posts[position]
-        Glide.with(holder.itemView.context).load(post.profileImageResId).into(holder.profile_image)
-        Glide.with(holder.itemView.context).load(post.postImageResId).into(holder.postImage)
+        Glide.with(holder.itemView.context).load(post.profileImage).into(holder.profile_image)
+        Glide.with(holder.itemView.context).load(post.postImage).into(holder.postImage)
         holder.username.text = post.username
         holder.timeAgo.text = post.timeAgo
         holder.postContent.text = post.postContent

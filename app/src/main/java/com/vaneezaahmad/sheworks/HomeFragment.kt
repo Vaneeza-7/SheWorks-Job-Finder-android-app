@@ -14,14 +14,19 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.robertlevonyan.views.customfloatingactionbutton.FloatingActionButton
+import org.json.JSONException
 import org.json.JSONObject
 import java.lang.reflect.Method
+import java.util.concurrent.TimeUnit
 
 class HomeFragment : Fragment(R.layout.fragment_home){
     val mAuth = FirebaseAuth.getInstance()
+    var posts: ArrayList<Post> = ArrayList()
+    var adapter = PostsAdapter(posts)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -94,45 +99,10 @@ class HomeFragment : Fragment(R.layout.fragment_home){
             Comment(R.drawable.minha, "Yumna Ahmad", "Awesome! So proud of you", "30 minutes ago")
         )
 
-        val posts = listOf(
-            Post(
-                R.drawable.john,
-                "John Doe",
-                "2 hours ago",
-                R.drawable.office_room,
-                "Just got promoted to Senior Software Engineer at Google! \uD83D\uDE0E",
-                123,
-                12,
-                listOf("Ali Ahmed", "Amna Khan", "Yumna Ahmad"),
-                comments
-            ),
-            Post(
-                R.drawable.woman_profile,
-                "Jane Smith",
-                "1 hour ago",
-                R.drawable.work_anniversary,
-                "Celebrating my 5th work anniversary at Facebook today! \uD83C\uDF89",
-                456,
-                23,
-                listOf("Ali Ahmed", "Amna Khan", "Yumna Ahmad"),
-                comments
-            ),
-            Post(
-                R.drawable.minha,
-                "Minha Khan",
-                "30 minutes ago",
-                R.drawable.amazon_office,
-                "Just landed my dream job at Amazon! \uD83D\uDE0D",
-                789,
-                34,
-                listOf("Ali Ahmed", "Amna Khan", "Yumna Ahmad"),
-                comments
-            )
-        )
-
+        getPosts();
         val recyclerView = view.findViewById<RecyclerView>(R.id.postsRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = PostsAdapter(posts)
+        recyclerView.adapter = adapter
 
 
         val reccomendations = listOf(
@@ -146,5 +116,62 @@ class HomeFragment : Fragment(R.layout.fragment_home){
         reccomendationsRecyclerView.adapter = RecomendationAdapter(reccomendations)
 
     }
+    fun getPosts() {
+        val url = requireContext().getString(R.string.IP) + "getPosts.php"
+        val request = object : StringRequest(
+            Method.GET, url,
+            { response ->
+                try {
+                    val jsonResponse = JSONObject(response)
+                    val status = jsonResponse.getInt("status")
+                    if (status == 1) {
+                        val postsJson = jsonResponse.getJSONArray("data")
+                        posts.clear()
+                        for (i in 0 until postsJson.length()) {
+                            val postJson = postsJson.getJSONObject(i)
+                            val timeAgo = getTimeAgo(postJson.getLong("timeAgo"))
+                            val post = Post(
+                                postJson.getString("profileImage"),
+                                postJson.getString("username"),
+                                timeAgo,
+                                postJson.getString("postImage"),
+                                postJson.getString("postContent"),
+                                postJson.getInt("likesCount"),
+                                postJson.getInt("commentsCount")
+                            )
+                            posts.add(post)
+                            adapter.notifyDataSetChanged()
+                        }
+                    }
+                } catch (e: JSONException) {
+                    Toast.makeText(
+                        context,
+                        "Invalid JSON response: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            },
+            { error ->
+                Toast.makeText(context, error.message, Toast.LENGTH_SHORT).show()
+            })
+        {}
+        Volley.newRequestQueue(requireContext()).add(request)
+    }
 
+    fun getTimeAgo(time: Long): String {
+        val now = System.currentTimeMillis()
+        val diff = now - time
+
+        return when {
+            diff < TimeUnit.MINUTES.toMillis(1) -> "just now"
+            diff < TimeUnit.HOURS.toMillis(1) -> "${TimeUnit.MILLISECONDS.toMinutes(diff)} minutes ago"
+            diff < TimeUnit.DAYS.toMillis(1) -> "${TimeUnit.MILLISECONDS.toHours(diff)} hours ago"
+            else -> "${TimeUnit.MILLISECONDS.toDays(diff)} days ago"
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getPosts()
+    }
 }
