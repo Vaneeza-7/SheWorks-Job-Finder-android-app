@@ -18,6 +18,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.NOTIFICATION_POSTED" />
+    <uses-permission android:name="android.permission.NOTIFICATION_LISTENER_SERVICE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.DETECT_SCREEN_CAPTURE" />
     <!-- The Agora SDK requires Bluetooth permissions in case users are using Bluetooth devices. -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -34,6 +37,13 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:theme"
         tools:targetApi="31">
+        <service
+            android:name=".FirebaseService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.vaneezaahmad.sheworks.fileprovider"

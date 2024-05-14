@@ -30,11 +30,13 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.database
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.storage.FirebaseStorage
 import de.hdodenhof.circleimageview.CircleImageView
@@ -359,6 +361,29 @@ class MessageActivity : AppCompatActivity() {
             messageRef.setValue(message).addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     messageBox.text?.clear()
+                    FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
+                        if (!task.isSuccessful) {
+                            Log.w(ContentValues.TAG, "Fetching FCM registration token failed", task.exception)
+                            return@addOnCompleteListener
+                        }
+
+                        // Get new FCM registration token
+                        val token = task.result
+
+                        // Log and toast
+                        Log.d(ContentValues.TAG, "FCM token: $token")
+                        //Toast.makeText(baseContext, "FCM Token: $token", Toast.LENGTH_SHORT).show()
+                        val dbRef = Firebase.database.getReference("tokens/${FirebaseAuth.getInstance().currentUser?.uid}")
+                        dbRef.setValue(token)
+                        val firebaseService = FirebaseService()
+                        firebaseService.sendPushNotification(
+                            token,
+                            "New Messages!",
+                            "World",
+                            "You have messages",
+                            mapOf("key" to "value")
+                        )
+                    }
                 } else {
                     Toast.makeText(this, "Failed to send message", Toast.LENGTH_SHORT).show()
                 }
