@@ -1,6 +1,7 @@
 package com.vaneezaahmad.sheworks
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,8 @@ class AddEventActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_event)
 
+        val titleEditText = findViewById<EditText>(R.id.titleEditText)
+        val descriptionEditText = findViewById<EditText>(R.id.descriptionEditText)
         pickDate = findViewById<EditText>(R.id.datePicker)
         pickDate.setOnClickListener {
 
@@ -30,6 +33,17 @@ class AddEventActivity : AppCompatActivity() {
         val back = findViewById<ImageButton>(R.id.back_button)
         back.setOnClickListener {
             finish()
+        }
+
+        val saveButton = findViewById<Button>(R.id.saveButton)
+        saveButton.setOnClickListener {
+            // save event
+            val title = titleEditText.text.toString()
+            val description = descriptionEditText.text.toString()
+            val date = pickDate.text.toString()
+            // save to database
+
+
         }
     }
     private fun showDatePickerDialog() {
@@ -60,6 +74,11 @@ class AddEventActivity : AppCompatActivity() {
         // Build and show the DatePicker
         val datePicker = builder.build()
         datePicker.show()
+    }
+
+    fun saveEvent(title: String, description: String, date: String)
+    {
+
     }
 
 }

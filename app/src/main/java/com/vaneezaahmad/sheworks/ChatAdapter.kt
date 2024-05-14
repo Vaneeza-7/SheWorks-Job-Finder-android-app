@@ -27,7 +27,11 @@ class ChatAdapter (val chats: List<User>) : RecyclerView.Adapter<ChatAdapter.Cha
         Glide.with(holder.profileImage.context).load(chat.profileImage).centerCrop().into(holder.profileImage)
 
         holder.relativeLayout.setOnClickListener {
+
             val intent = Intent(holder.relativeLayout.context, MessageActivity::class.java)
+            intent.putExtra("receiveruid", chat.uid)
+            intent.putExtra("receivername", chat.username)
+            intent.putExtra("receiverimage", chat.profileImage)
             holder.relativeLayout.context.startActivity(intent)
         }
     }

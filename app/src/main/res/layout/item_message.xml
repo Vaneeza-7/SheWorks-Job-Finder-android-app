@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:id="@+id/mentor_message_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/circle_filled"
+            android:scaleType="centerCrop"
+            android:padding="4dp"
+            app:civ_border_color="#7ED8D2"
+            app:civ_border_width="3dp"/>
+
+        <LinearLayout
+            android:id="@+id/messageBubble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/square_rounded"
+            android:padding="8dp"
+            android:backgroundTint="@color/colorAccent"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/text_message_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:text="Hello, You there?" />
+
+            <TextView
+                android:id="@+id/text_message_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceOverline"
+                android:layout_gravity="end"
+                android:text="10:30" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- Mentor's Voice Message Layout -->
+    <LinearLayout
+        android:id="@+id/mentor_voice_message_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/circle_filled"
+            android:scaleType="centerCrop"
+            android:padding="4dp"
+            app:civ_border_color="#7ED8D2"
+            app:civ_border_width="3dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/square_rounded"
+            android:padding="8dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/mentor_voice_message_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/voice_svgrepo_com" />
+
+            <TextView
+                android:id="@+id/mentor_voice_message_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceOverline"
+                android:layout_gravity="end"
+                android:text="10:30" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Mentor's Image Message Layout -->
+    <LinearLayout
+        android:id="@+id/mentor_image_message_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/circle_filled"
+            android:scaleType="centerCrop"
+            android:padding="4dp"
+            app:civ_border_color="#7ED8D2"
+            app:civ_border_width="3dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/square_rounded"
+            android:padding="8dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/mentor_image_message_icon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_launcher_foreground" />
+
+            <TextView
+                android:id="@+id/mentor_image_message_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceOverline"
+                android:layout_gravity="end"
+                android:text="10:30" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Mentor's Video Message Layout -->
+    <LinearLayout
+        android:id="@+id/mentor_video_message_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/circle_filled"
+            android:scaleType="centerCrop"
+            android:padding="4dp"
+            app:civ_border_color="#7ED8D2"
+            app:civ_border_width="3dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/square_rounded"
+            android:padding="8dp"
+            android:gravity="center_vertical">
+
+            <VideoView
+                android:id="@+id/mentor_video_message_icon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                />
+
+            <TextView
+                android:id="@+id/mentor_video_message_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceOverline"
+                android:layout_gravity="end"
+                android:text="10:30" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/user_message_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/square_rounded"
+            android:padding="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/user_message_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/white"
+                android:text="Hello, You there?" />
+
+            <TextView
+                android:id="@+id/user_message_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceOverline"
+                android:layout_gravity="end"
+                android:text="10:30" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- User's Voice Message Layout -->
+    <LinearLayout
+        android:id="@+id/user_voice_message_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/square_rounded"
+            android:padding="8dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/user_voice_message_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/voice_svgrepo_com" />
+
+            <TextView
+                android:id="@+id/user_voice_message_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceOverline"
+                android:layout_gravity="end"
+                android:text="10:30" />
+        </LinearLayout>
+    </LinearLayout>
+    <!-- User's Image Message Layout -->
+    <LinearLayout
+        android:id="@+id/user_image_message_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/square_rounded"
+            android:padding="8dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/user_image_message_icon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_launcher_foreground" />
+
+            <TextView
+                android:id="@+id/user_image_message_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceOverline"
+                android:layout_gravity="end"
+                android:text="10:30" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- User's Video Message Layout -->
+    <LinearLayout
+        android:id="@+id/user_video_message_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/square_rounded"
+            android:padding="8dp"
+            android:gravity="center_vertical">
+
+            <VideoView
+                android:id="@+id/user_video_message_icon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                />
+
+            <TextView
+                android:id="@+id/user_video_message_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceOverline"
+                android:layout_gravity="end"
+                android:text="10:30" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

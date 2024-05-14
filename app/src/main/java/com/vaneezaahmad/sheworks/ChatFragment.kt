@@ -11,12 +11,18 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.robertlevonyan.views.customfloatingactionbutton.FloatingActionButton
+import org.json.JSONException
+import org.json.JSONObject
 
 class ChatFragment : Fragment(R.layout.fragment_chat) {
     val mAuth = FirebaseAuth.getInstance()
+    var userList = ArrayList<User>()
+    var adapter = ChatAdapter(userList)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -85,27 +91,66 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
             true
         }
 
-/*
-val chatList = listOf(
-            User(
-                "Ali Khan", R.drawable.baseline_person_24),
-            User(
-                "Sara Ali", R.drawable.woman_profile),
-            User(
-                "Ayesha Khan", R.drawable.facebook),
-            User(
-                "Ali Ahmed", R.drawable.baseline_person_24),
-            User(
-                "Zainab Ali", R.drawable.company_default_logo),
-            User(
-                "Ahmed Khan", R.drawable.microsoft_logo));
-
-        val adapter = ChatAdapter(chatList)
+        getUsers();
         val recyclerView = view.findViewById<RecyclerView>(R.id.chatsRecyclerView)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
-*/
+
 
     }
 
+    fun getUsers()
+    {
+        val url = requireContext().getString(R.string.IP) + "getUsers.php"
+        val stringRequest = object : StringRequest(
+            Method.GET, url,
+            { response ->
+                try {
+                    val obj = JSONObject(response)
+                    if (obj.getInt("status") == 1) {
+                        val jsonArray = obj.getJSONArray("data")
+                        for (i in 0 until jsonArray.length()) {
+                            val user = jsonArray.getJSONObject(i)
+                            val userObject = User(
+                                uid = user.getString("id"),
+                                username = user.getString("username"),
+                                email = user.getString("email"),
+                                contactNumber = user.getString("contact_number"),
+                                country = user.getString("country"),
+                                city = user.getString("city"),
+                                useCase = user.getString("use_case"),
+                                password = user.getString("password"),
+                                profileImage = user.getString("profileImage"),
+                            )
+                            if (userObject.uid != mAuth.currentUser?.uid) {
+                                userList.add(userObject)
+                            }
+                        }
+
+                        adapter.notifyDataSetChanged()
+                        if (isAdded) {
+                            Toast.makeText(context, "Users loaded successfully", Toast.LENGTH_SHORT).show()
+                        }
+
+                    } else {
+                        if (isAdded) {
+                            Toast.makeText(context, "No users found", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                    if (isAdded) {
+                        Toast.makeText(context, "Error: " + e.message, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            },
+            { error ->
+                if (isAdded) {
+                    Toast.makeText(context, "Error: " + error.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+        )
+        {}
+        Volley.newRequestQueue(requireContext()).add(stringRequest)
+    }
 }
