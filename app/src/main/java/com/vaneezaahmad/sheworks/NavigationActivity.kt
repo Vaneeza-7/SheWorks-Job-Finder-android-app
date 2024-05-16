@@ -38,7 +38,13 @@ class NavigationActivity : AppCompatActivity() {
                     getString(R.string.profile),
                     ContextCompat.getDrawable(this, R.drawable.ic_profile)))
 
-        setCurrentFragment(HomeFragment());
+
+        if (intent.getBooleanExtra("openProfileFragment", false)) {
+            setCurrentFragment(ProfileFragment())
+            fluidBottomNavigation.selectTab(4)
+        } else {
+            setCurrentFragment(HomeFragment())
+        }
         fluidBottomNavigation.onTabSelectedListener = object : OnTabSelectedListener {
             override fun onTabSelected(position: Int) {
                 when (position) {

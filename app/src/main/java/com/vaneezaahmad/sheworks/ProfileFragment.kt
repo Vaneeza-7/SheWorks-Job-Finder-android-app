@@ -92,6 +92,11 @@ val mAuth = FirebaseAuth.getInstance()
                     val intent = Intent(requireContext(), FeedbackActivity::class.java)
                     startActivity(intent)
                 }
+                R.id.applications_item -> {
+                    // Start the activity or fragment for My Applications
+                    val intent = Intent(requireContext(), MyApplicationsActivity::class.java)
+                    startActivity(intent)
+                }
 
 
             }

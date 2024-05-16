@@ -1,11 +1,13 @@
 package com.vaneezaahmad.sheworks
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
 
 class RecomendationAdapter (val recomendations: List<Reccomendation>): RecyclerView.Adapter<RecomendationAdapter.RecomendationViewHolder>() {
@@ -23,11 +25,16 @@ class RecomendationAdapter (val recomendations: List<Reccomendation>): RecyclerV
 
     override fun onBindViewHolder(holder: RecomendationViewHolder, position: Int) {
         val recomendation = recomendations[position]
-        holder.profileImage.setImageResource(recomendation.profileImageResId)
+        Glide.with(holder.profileImage.context).load(recomendation.profileImage).centerCrop().into(holder.profileImage)
         holder.username.text = recomendation.username
-        holder.designation.text = recomendation.designation
+        holder.designation.text = recomendation.profession
         holder.connectButton.setOnClickListener {
             // Connect with the user
+            val intent = Intent(holder.connectButton.context, MessageActivity::class.java)
+            intent.putExtra("receiveruid", recomendation.userID)
+            intent.putExtra("receivername", recomendation.username)
+            intent.putExtra("receiverimage", recomendation.profileImage)
+            holder.connectButton.context.startActivity(intent)
         }
     }
 

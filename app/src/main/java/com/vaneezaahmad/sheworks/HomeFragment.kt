@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.drawerlayout.widget.DrawerLayout
@@ -27,6 +28,8 @@ class HomeFragment : Fragment(R.layout.fragment_home){
     val mAuth = FirebaseAuth.getInstance()
     var posts: ArrayList<Post> = ArrayList()
     var adapter = PostsAdapter(posts)
+    var reccomendations: ArrayList<Reccomendation> = ArrayList()
+    var reccomendationsAdapter = RecomendationAdapter(reccomendations)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,6 +41,10 @@ class HomeFragment : Fragment(R.layout.fragment_home){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        val reccomendationTitle = view.findViewById<TextView>(R.id.reccomendationTitle)
+        reccomendationTitle.visibility = View.GONE
 
         val drawerLayout = view.findViewById<DrawerLayout>(R.id.drawerLayout)
         val menu = view.findViewById<ImageButton>(R.id.menu_button)
@@ -79,6 +86,11 @@ class HomeFragment : Fragment(R.layout.fragment_home){
                     val intent = Intent(requireContext(), FeedbackActivity::class.java)
                     startActivity(intent)
                 }
+                R.id.applications_item -> {
+                    // Start the activity or fragment for My Applications
+                    val intent = Intent(requireContext(), MyApplicationsActivity::class.java)
+                    startActivity(intent)
+                }
 
 
             }
@@ -105,15 +117,10 @@ class HomeFragment : Fragment(R.layout.fragment_home){
         recyclerView.adapter = adapter
 
 
-        val reccomendations = listOf(
-            Reccomendation(R.drawable.john, "Ali Ahmed", "Software Engineer"),
-            Reccomendation(R.drawable.minha, "Minha Khan", "Product Manager"),
-            Reccomendation(R.drawable.woman_profile, "Sara Ali", "Data Scientist")
-        )
-
+        //getRecommendations();
         val reccomendationsRecyclerView = view.findViewById<RecyclerView>(R.id.reccomendationsRecyclerView)
         reccomendationsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        reccomendationsRecyclerView.adapter = RecomendationAdapter(reccomendations)
+        reccomendationsRecyclerView.adapter = reccomendationsAdapter
 
     }
     fun getPosts() {
@@ -170,8 +177,64 @@ class HomeFragment : Fragment(R.layout.fragment_home){
         }
     }
 
+    fun getRecommendations()
+    {
+        val url = requireContext().getString(R.string.IP) + "getRecommendations.php"
+        val reccomendationTitle = view?.findViewById<TextView>(R.id.reccomendationTitle)
+        val stringRequest = object : StringRequest(
+            Method.POST, url,
+            { response ->
+                try {
+                    val obj = JSONObject(response)
+                    if (obj.getInt("status") == 1) {
+                        val jsonArray = obj.getJSONArray("data")
+                        for (i in 0 until jsonArray.length()) {
+                            val reccomendation = jsonArray.getJSONObject(i)
+                            val reccomendationObject = Reccomendation(
+                                userID = reccomendation.getString("id"),
+                                profileImage = reccomendation.getString("profileImage"),
+                                username = reccomendation.getString("username"),
+                                profession = reccomendation.getString("profession")
+                            )
+                            reccomendations.add(reccomendationObject)
+                        }
+                        if (reccomendations.isEmpty()) {
+                            reccomendationTitle?.visibility = View.GONE
+                        } else {
+                            reccomendationTitle?.visibility = View.VISIBLE
+                        }
+
+                        reccomendationsAdapter.notifyDataSetChanged()
+                        Toast.makeText(context, "Reccomendations loaded successfully", Toast.LENGTH_SHORT).show()
+                        //view visibility show reccomendationTitle
+
+                    } else {
+                        //display message inside obj
+                        Toast.makeText(context, obj.getString("message"), Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                    Toast.makeText(context, "Error: " + e.message, Toast.LENGTH_SHORT).show()
+                }
+            },
+            { error ->
+                Toast.makeText(context, "Volley error $error", Toast.LENGTH_SHORT).show()
+            }
+        )
+        {
+            override fun getParams(): Map<String, String> {
+                val params: MutableMap<String, String> = HashMap()
+                params["user_id"] = mAuth.currentUser?.uid.toString()
+                return params
+            }
+        }
+        Volley.newRequestQueue(requireContext()).add(stringRequest)
+    }
+
     override fun onResume() {
         super.onResume()
         getPosts()
+        reccomendations.clear()
+        getRecommendations()
     }
 }

@@ -1,7 +1,8 @@
 package com.vaneezaahmad.sheworks
 
 data class Reccomendation(
-    val profileImageResId: Int,
+    val userID : String,
+    val profileImage: String,
     val username: String,
-    val designation: String
+    val profession: String
 )
