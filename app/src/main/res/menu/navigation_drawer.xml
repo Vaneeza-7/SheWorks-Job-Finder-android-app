@@ -26,6 +26,12 @@
                 android:checkable="true"
                 app:showAsAction="ifRoom"/>
             <item
+                android:id="@+id/account_item"
+                android:icon="@drawable/baseline_manage_accounts_24"
+                android:title="Manage Account"
+                android:checkable="true"
+                app:showAsAction="ifRoom"/>
+            <item
                 android:id="@+id/logout_item"
                 android:icon="@drawable/baseline_logout_24"
                 android:title="Logout"

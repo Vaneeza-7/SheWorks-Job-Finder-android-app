@@ -20,6 +20,8 @@ import com.applandeo.materialcalendarview.CalendarView
 import com.applandeo.materialcalendarview.listeners.OnCalendarDayClickListener
 import com.bumptech.glide.Glide
 import com.applandeo.materialcalendarview.EventDay
+import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.robertlevonyan.views.customfloatingactionbutton.FloatingActionButton
 import org.json.JSONException
 import org.json.JSONObject
@@ -31,6 +33,7 @@ import java.util.Locale
 class CalendarFragment : Fragment(R.layout.fragment_calendar) {
     private var events: MutableList<Event> = mutableListOf()
     var adapter = EventAdapter(events)
+    val mAuth = FirebaseAuth.getInstance()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -58,6 +61,49 @@ class CalendarFragment : Fragment(R.layout.fragment_calendar) {
             // Navigate to the AddEventActivity
             val intent = Intent(requireContext(), AddEventActivity::class.java)
             startActivity(intent)
+        }
+
+        val navigationView: NavigationView = view.findViewById(R.id.navigationView)
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.notification_item -> {
+                    // Start the activity or fragment for Notifications
+                    val intent = Intent(requireContext(), NotificationActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.account_item -> {
+                    // Start the activity or fragment for My Saves
+                    val intent = Intent(requireContext(), EditProfile::class.java)
+                    startActivity(intent)
+                }
+                R.id.about -> {
+                    // Start the activity or fragment for Settings
+                    val intent = Intent(requireContext(), AboutActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.logout_item -> {
+                    // Start the activity or fragment for Logout
+                    mAuth.signOut()
+                    Toast.makeText(context, "Logged out successfully", Toast.LENGTH_SHORT).show()
+                    //call finish() on the activity
+                    activity?.finish()
+                }
+                R.id.feedback -> {
+                    // Start the activity or fragment for Logout
+                    val intent = Intent(requireContext(), FeedbackActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.applications_item -> {
+                    // Start the activity or fragment for My Applications
+                    val intent = Intent(requireContext(), MyApplicationsActivity::class.java)
+                    startActivity(intent)
+                }
+
+
+            }
+            // Close the navigation drawer when an item is tapped.
+            drawerLayout.closeDrawers()
+            true
         }
 
         //getEvents();

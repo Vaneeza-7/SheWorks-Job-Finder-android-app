@@ -81,78 +81,79 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:orientation="horizontal"
-                app:singleLine="true">
+                app:singleLine="true"
+                android:orientation="horizontal">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip1"
                     style="@style/Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="isb"
                     android:background="@color/white"
-                    android:checkable="true"
-                    android:text="developer"
-                    android:textColor="@color/iconSelectedColor"
-                    app:checkedIconVisible="true"
                     app:chipBackgroundColor="#FDFDFD"
                     app:chipStrokeColor="@color/colorAccent"
-                    app:rippleColor="@color/ripple_color" />
+                    app:rippleColor="@color/ripple_color"
+                    android:textColor="@color/iconSelectedColor"
+                    app:checkedIconVisible="true"
+                    android:checkable="true"
+                    />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip2"
                     style="@style/Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:checkable="true"
                     android:text="remote"
-                    android:textColor="@color/iconSelectedColor"
-                    app:checkedIconVisible="true"
+                    android:background="@color/white"
                     app:chipBackgroundColor="#FDFDFD"
                     app:chipStrokeColor="@color/colorAccent"
-                    app:rippleColor="@color/ripple_color" />
+                    app:rippleColor="@color/ripple_color"
+                    android:textColor="@color/iconSelectedColor"
+                    app:checkedIconVisible="true"
+                    android:checkable="true"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip3"
                     style="@style/Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="on site"
                     android:background="@color/white"
-                    android:checkable="true"
-                    android:text="full time"
-                    android:textColor="@color/iconSelectedColor"
-                    app:checkedIconVisible="true"
                     app:chipBackgroundColor="#FDFDFD"
                     app:chipStrokeColor="@color/colorAccent"
-                    app:rippleColor="@color/ripple_color" />
+                    app:rippleColor="@color/ripple_color"
+                    android:textColor="@color/iconSelectedColor"
+                    app:checkedIconVisible="true"
+                    android:checkable="true"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip4"
                     style="@style/Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="fast nuces"
                     android:background="@color/white"
-                    android:checkable="true"
-                    android:text="islamabad"
-                    android:textColor="@color/iconSelectedColor"
-                    app:checkedIconVisible="true"
                     app:chipBackgroundColor="#FDFDFD"
                     app:chipStrokeColor="@color/colorAccent"
-                    app:rippleColor="@color/ripple_color" />
+                    app:rippleColor="@color/ripple_color"
+                    android:textColor="@color/iconSelectedColor"
+                    app:checkedIconVisible="true"
+                    android:checkable="true"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip5"
                     style="@style/Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="$1000-$2000"
                     android:background="@color/white"
-                    android:checkable="true"
-                    android:text="engineer"
-                    android:textColor="@color/iconSelectedColor"
-                    app:checkedIconVisible="true"
                     app:chipBackgroundColor="#FDFDFD"
                     app:chipStrokeColor="@color/colorAccent"
-                    app:rippleColor="@color/ripple_color" />
+                    app:rippleColor="@color/ripple_color"
+                    android:textColor="@color/iconSelectedColor"
+                    app:checkedIconVisible="true"
+                    android:checkable="true"/>
 
 
             </com.google.android.material.chip.ChipGroup>

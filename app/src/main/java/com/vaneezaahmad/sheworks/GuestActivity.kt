@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -21,9 +23,29 @@ class GuestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_guest)
 
+        val chipGroup = findViewById<ChipGroup>(R.id.chipGroup)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
+
+        chipGroup.setOnCheckedStateChangeListener { group, checkedIds ->
+            if (checkedIds.isNotEmpty()) {
+                val chipTexts = checkedIds.map { id ->
+                    val chip = group.findViewById<Chip>(id)
+                    chip?.text.toString()
+                }
+                // Filter the job list based on all checked chip texts
+                val filteredList = jobList.filter { job ->
+                    chipTexts.any { chipText ->
+                        job.location.contains(chipText, ignoreCase = true) || job.salary.contains(chipText, ignoreCase = true) || job.company.contains(chipText, ignoreCase = true)
+                    }
+                }
+                adapter.filterList(filteredList)
+
+            } else {
+                adapter.filterList(jobList)
+            }
+        }
 
         val searchView = findViewById<android.widget.SearchView>(R.id.searchView)
         searchView.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener {

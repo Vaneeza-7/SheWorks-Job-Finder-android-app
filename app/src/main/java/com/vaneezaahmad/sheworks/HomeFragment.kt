@@ -64,7 +64,7 @@ class HomeFragment : Fragment(R.layout.fragment_home){
                     val intent = Intent(requireContext(), NotificationActivity::class.java)
                     startActivity(intent)
                 }
-                R.id.saved_item -> {
+                R.id.account_item -> {
                     // Start the activity or fragment for My Saves
                     val intent = Intent(requireContext(), EditProfile::class.java)
                     startActivity(intent)
@@ -205,7 +205,7 @@ class HomeFragment : Fragment(R.layout.fragment_home){
                         }
 
                         reccomendationsAdapter.notifyDataSetChanged()
-                        Toast.makeText(context, "Reccomendations loaded successfully", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(context, "Reccomendations loaded successfully", Toast.LENGTH_SHORT).show()
                         //view visibility show reccomendationTitle
 
                     } else {

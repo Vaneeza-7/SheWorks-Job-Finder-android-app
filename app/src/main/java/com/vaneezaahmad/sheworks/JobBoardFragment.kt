@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.robertlevonyan.views.customfloatingactionbutton.FloatingActionButton
@@ -54,7 +56,7 @@ class JobBoardFragment : Fragment(R.layout.fragment_job_board) {
                     val intent = Intent(requireContext(), NotificationActivity::class.java)
                     startActivity(intent)
                 }
-                R.id.saved_item -> {
+                R.id.account_item -> {
                     // Start the activity or fragment for My Saves
                     val intent = Intent(requireContext(), EditProfile::class.java)
                     startActivity(intent)
@@ -96,9 +98,29 @@ class JobBoardFragment : Fragment(R.layout.fragment_job_board) {
             startActivity(intent);
         }
 
+        val chipGroup = view.findViewById<ChipGroup>(R.id.chipGroup)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
+
+        chipGroup.setOnCheckedStateChangeListener { group, checkedIds ->
+            if (checkedIds.isNotEmpty()) {
+                val chipTexts = checkedIds.map { id ->
+                    val chip = group.findViewById<Chip>(id)
+                    chip?.text.toString()
+                }
+                // Filter the job list based on all checked chip texts
+                val filteredList = jobList.filter { job ->
+                    chipTexts.any { chipText ->
+                        job.location.contains(chipText, ignoreCase = true) || job.salary.contains(chipText, ignoreCase = true) || job.company.contains(chipText, ignoreCase = true)
+                    }
+                }
+                adapter.filterList(filteredList)
+
+            } else {
+                adapter.filterList(jobList)
+            }
+        }
 
 
         val searchView = view.findViewById<android.widget.SearchView>(R.id.searchView)

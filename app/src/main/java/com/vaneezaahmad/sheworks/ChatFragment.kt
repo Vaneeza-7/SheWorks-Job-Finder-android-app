@@ -62,7 +62,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
                     val intent = Intent(requireContext(), NotificationActivity::class.java)
                     startActivity(intent)
                 }
-                R.id.saved_item -> {
+                R.id.account_item -> {
                     // Start the activity or fragment for My Saves
                     val intent = Intent(requireContext(), EditProfile::class.java)
                     startActivity(intent)
