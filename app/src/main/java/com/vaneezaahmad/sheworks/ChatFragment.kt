@@ -1,5 +1,6 @@
 package com.vaneezaahmad.sheworks
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -95,6 +96,25 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.chatsRecyclerView)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
+
+        val searchView = view.findViewById<android.widget.SearchView>(R.id.searchView)
+        searchView.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                val sharedPreferences = requireContext().getSharedPreferences("recent_searches", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                val searches = sharedPreferences.getStringSet("searches", mutableSetOf()) ?: mutableSetOf()
+                searches.add(query)
+                editor.putStringSet("searches", searches)
+                editor.apply()
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val filteredList = userList.filter { it.username.contains(newText ?: "", ignoreCase = true) }
+                adapter.filterList(filteredList)
+                return false
+            }
+        })
 
 
     }

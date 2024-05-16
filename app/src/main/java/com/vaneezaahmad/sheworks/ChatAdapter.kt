@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
 
-class ChatAdapter (val chats: List<User>) : RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
+class ChatAdapter (var chats: List<User> ) : RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
     class ChatViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val name = view.findViewById<TextView>(R.id.username)
         val profileImage = view.findViewById<CircleImageView>(R.id.profile_image)
@@ -37,4 +37,9 @@ class ChatAdapter (val chats: List<User>) : RecyclerView.Adapter<ChatAdapter.Cha
     }
 
     override fun getItemCount() = chats.size
+
+    fun filterList(filteredList: List<User>) {
+        chats = filteredList
+        notifyDataSetChanged()
+    }
 }

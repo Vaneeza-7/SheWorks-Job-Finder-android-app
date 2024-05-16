@@ -4,13 +4,18 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.applandeo.materialcalendarview.CalendarDay
 import com.applandeo.materialcalendarview.CalendarView
 import com.applandeo.materialcalendarview.CalendarWeekDay
 import com.applandeo.materialcalendarview.builders.DatePickerBuilder
 import com.applandeo.materialcalendarview.listeners.OnCalendarDayClickListener
 import com.applandeo.materialcalendarview.listeners.OnSelectDateListener
+import org.json.JSONException
+import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -42,6 +47,7 @@ class AddEventActivity : AppCompatActivity() {
             val description = descriptionEditText.text.toString()
             val date = pickDate.text.toString()
             // save to database
+            saveEvent(title, description, date)
 
 
         }
@@ -78,6 +84,34 @@ class AddEventActivity : AppCompatActivity() {
 
     fun saveEvent(title: String, description: String, date: String)
     {
+        val url = getString(R.string.IP) + "addEvent.php"
+        val stringRequest = object : StringRequest(
+            Method.POST, url,
+            { response ->
+                try {
+                    val obj = JSONObject(response)
+                    if (obj.getInt("status") == 1) {
+                        Toast.makeText(this, "Event added successfully", Toast.LENGTH_SHORT).show()
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Failed to add event", Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+            },
+            { error ->
+                Toast.makeText(this, "Failed to add event: ${error.message}", Toast.LENGTH_SHORT).show()
+            }) {
+            override fun getParams(): Map<String, String> {
+                val params: MutableMap<String, String> = HashMap()
+                params["title"] = title
+                params["description"] = description
+                params["date"] = date
+                return params
+            }
+        }
+        Volley.newRequestQueue(this).add(stringRequest)
 
     }
 

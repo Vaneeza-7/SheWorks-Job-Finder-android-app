@@ -44,13 +44,12 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:openDrawer="start"
     android:hardwareAccelerated="true">
 
             <!-- Screen content -->
             <!-- Use app:layout_behavior="@string/appbar_scrolling_view_behavior" to fit below top app bar -->
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -88,6 +87,7 @@
                     app:abbreviationsBarColor="@color/colorAccent"
                     app:abbreviationsLabelsColor="@color/white"
                     app:type="one_day_picker"
+                    android:layout_below="@+id/events"
                     />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -95,22 +95,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
+                    android:layout_below="@+id/calendarView"
                     />
 
                 <com.robertlevonyan.views.customfloatingactionbutton.FloatingActionButton
                     android:id="@+id/addEvent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|end"
                     app:fabIcon="@drawable/ic_add"
-                    android:layout_margin="16dp"
+                    android:layout_marginBottom="60dp"
+                    android:layout_marginEnd="20dp"
                     app:backgroundTint="@color/iconSelectedColor"
-                    app:elevation="6dp"
                     app:fabSize="normal"
-                    app:rippleColor="@color/colorAccent"
-                    android:padding="10dp" />
+                    app:rippleColor="@color/colorPrimary"
+                    android:padding="10dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:enabled="true"
+                    />
 
-            </LinearLayout>
+            </RelativeLayout>
             <com.google.android.material.navigation.NavigationView
                 android:id="@+id/navigationView"
             android:layout_width="wrap_content"

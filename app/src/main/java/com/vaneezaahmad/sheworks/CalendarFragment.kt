@@ -7,22 +7,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.applandeo.materialcalendarview.CalendarDay
 import com.applandeo.materialcalendarview.CalendarView
 import com.applandeo.materialcalendarview.listeners.OnCalendarDayClickListener
 import com.bumptech.glide.Glide
 import com.applandeo.materialcalendarview.EventDay
 import com.robertlevonyan.views.customfloatingactionbutton.FloatingActionButton
+import org.json.JSONException
+import org.json.JSONObject
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Locale
 
 
 class CalendarFragment : Fragment(R.layout.fragment_calendar) {
-    private var events: List<Event> = emptyList()
+    private var events: MutableList<Event> = mutableListOf()
+    var adapter = EventAdapter(events)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -52,39 +60,19 @@ class CalendarFragment : Fragment(R.layout.fragment_calendar) {
             startActivity(intent)
         }
 
+        //getEvents();
         val recyclerView = view.findViewById<RecyclerView>(R.id.eventsRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = EventAdapter(events)
-
-        val calendar1 = Calendar.getInstance()
-        calendar1[Calendar.YEAR] = 2024
-        calendar1[Calendar.MONTH] = Calendar.APRIL // Note: Calendar month is zero-based.
-        calendar1[Calendar.DAY_OF_MONTH] = 20
-
-        val calendar2 = Calendar.getInstance()
-        calendar2[Calendar.YEAR] = 2024
-        calendar2[Calendar.MONTH] = Calendar.APRIL // Note: Calendar month is zero-based.
-        calendar2[Calendar.DAY_OF_MONTH] = 21
-
-        val calendar3 = Calendar.getInstance()
-        calendar3[Calendar.YEAR] = 2024
-        calendar3[Calendar.MONTH] = Calendar.APRIL // Note: Calendar month is zero-based.
-        calendar3[Calendar.DAY_OF_MONTH] = 22
-
-        events = listOf(
-            Event("Meeting", "Discuss project details", calendar1),
-            Event("Webinar", "Big Data Webinar link: http://bigdata.org",  calendar2),
-            Event("Presentation", "Present project to the client", calendar3)
-        )
+        recyclerView.adapter = adapter
 
         val calendarView = view.findViewById<CalendarView>(R.id.calendarView)
-        val eventDays = events.map { event ->
-            val calendar = event.date
-            val eventDay = CalendarDay(calendar)
-            eventDay.imageResource = R.drawable.event_icon
-            eventDay
-        }
-        calendarView.setCalendarDays(eventDays)
+//        val eventDays = events.map { event ->
+//            val calendar = event.date
+//            val eventDay = CalendarDay(calendar)
+//            eventDay.imageResource = R.drawable.event_icon
+//            eventDay
+//        }
+//        calendarView.setCalendarDays(eventDays)
 
         calendarView.setOnCalendarDayClickListener(object : OnCalendarDayClickListener {
             override fun onClick(calendarDay: CalendarDay) {
@@ -120,5 +108,56 @@ class CalendarFragment : Fragment(R.layout.fragment_calendar) {
 
         val calendarView =  view.findViewById<CalendarView>(R.id.calendarView)
         calendarView.setCalendarDays(listOf(eventDay))*/
+    }
+
+    fun getEvents(){
+        events.clear();
+        val url = requireContext().getString(R.string.IP) + "getEvents.php"
+        val stringRequest = object : StringRequest(
+            Method.GET, url,
+            { response ->
+                try {
+                    val jsonResponse = JSONObject(response)
+                    val status = jsonResponse.getInt("status")
+                    if (status == 1) {
+                        val eventsJson = jsonResponse.getJSONArray("events")
+                        for (i in 0 until eventsJson.length()) {
+                            val eventJson = eventsJson.getJSONObject(i)
+                            val title = eventJson.getString("title")
+                            val description = eventJson.getString("description")
+                            val date = eventJson.getString("date")
+                            val calendar = Calendar.getInstance()
+                            val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.UK)
+                            calendar.time = sdf.parse(date)!!
+                            events.add(Event(title, description, calendar))
+                        }
+                        adapter.updateEvents(events)
+                        adapter.notifyDataSetChanged()
+
+                        // Set the icons after the events have been retrieved
+                        val calendarView = view?.findViewById<CalendarView>(R.id.calendarView)
+                        val eventDays = events.map { event ->
+                            val calendar = event.date
+                            val eventDay = CalendarDay(calendar)
+                            eventDay.imageResource = R.drawable.event_icon
+                            eventDay
+                        }
+                        calendarView?.setCalendarDays(eventDays)
+                    }
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+            },
+            {
+                Toast.makeText(requireContext(), "Couldn't get events", Toast.LENGTH_SHORT).show()
+            })
+        {}
+        Volley.newRequestQueue(requireContext()).add(stringRequest)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        events.clear();
+        getEvents()
     }
 }
