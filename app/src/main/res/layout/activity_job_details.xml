@@ -35,7 +35,7 @@
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,6 +143,7 @@
                     android:textAppearance="?attr/textAppearanceTitleMedium" />
 
                 <TextView
+                    android:id="@+id/specifications_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="3+ years of experience in web development, Proficient in HTML, CSS, JavaScript, and React"
@@ -306,9 +307,9 @@
                     android:textAppearance="?attr/textAppearanceBodyMedium" />
 
                 <TextView
+                    android:id="@+id/posted_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Posted 2 days ago"
                     android:textColor="@color/black"
                     android:padding="5dp"
                     android:textAppearance="?attr/textAppearanceBodySmall"

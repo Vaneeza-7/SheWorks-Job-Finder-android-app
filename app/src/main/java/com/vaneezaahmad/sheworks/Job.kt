@@ -1,7 +1,7 @@
 package com.vaneezaahmad.sheworks
 
 data class Job(
-    val id: Int,
+    var id: Int,
     val title: String,
     val company: String,
     val description: String,
