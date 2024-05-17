@@ -48,7 +48,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:padding="10dp"
-        android:text="\u2022 Bachelors in Artificial Intelligence from FAST NUCES\n\u2022 Masters in Artificial Intelligence from NUST"
+        android:text="\u2022 Add your education here ...\n\u2022 Add your institution here..."
         android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
         android:textColor="@color/black" />
 
@@ -88,7 +88,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:padding="10dp"
-        android:text="Mern Stack Developer\n 2021 -2022\nRistech Islamabad\n\nSoftware Engineer\n 2022 - Present\nShe Loves Tech Islamabad"
+        android:text="Add your experience here..."
         android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
         android:textColor="@color/black" />
 
@@ -132,7 +132,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:padding="10dp"
-        android:text="Artificial Intelligence, Machine Learning, Data Science, Software Development"
+        android:text="Add your interests here..."
         android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
         android:textColor="@color/black" />
 
@@ -176,7 +176,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:padding="10dp"
-        android:text="SheLovesTech Android App\nSheLovesTech Website"
+        android:text="Add your projects here..."
         android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
         android:textColor="@color/black" />
 

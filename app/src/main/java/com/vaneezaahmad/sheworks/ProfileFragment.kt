@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -38,6 +39,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 val mAuth = FirebaseAuth.getInstance()
     var url : String = "";
     var storage = FirebaseStorage.getInstance()
+    private var phoneNumber: String? = null
+    private var email: String? = null
+    private var location: String? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -145,6 +150,8 @@ val mAuth = FirebaseAuth.getInstance()
                 // Do something when tab reselected, if needed
             }
         })
+
+        getCareerInfo();
         val professionTextView = view.findViewById<TextView>(R.id.profession)
         professionTextView.setOnClickListener {
             showDialogToEditMessage(professionTextView)
@@ -173,6 +180,36 @@ val mAuth = FirebaseAuth.getInstance()
             selectImageLauncher.launch("image/*")
         }
 
+        val callButton = view.findViewById<ImageButton>(R.id.callButton)
+        val emailButton = view.findViewById<ImageButton>(R.id.emailButton)
+        val locationButton = view.findViewById<ImageButton>(R.id.locationButton)
+        callButton.setOnClickListener {
+            showDialogWithMessage("Phone Number", phoneNumber)
+        }
+        emailButton.setOnClickListener {
+            showDialogWithMessage("Email", email)
+        }
+        locationButton.setOnClickListener {
+            showDialogWithMessage("Location", location)
+        }
+
+    }
+
+    private fun showDialogWithMessage(title: String, message: String?) {
+        val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogCustom)
+        builder.setTitle(title)
+        builder.setMessage(message ?: "Not available")
+        builder.setPositiveButton("OK", null)
+        val dialog = builder.create()
+        dialog.setOnShowListener {
+            val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            positiveButton.setTextColor(Color.WHITE)
+            positiveButton.setOnClickListener {
+                dialog.dismiss()
+            }
+        }
+
+        dialog.show()
     }
 
     private fun showDialogToEditMessage(professionTextView: TextView) {
@@ -193,6 +230,7 @@ val mAuth = FirebaseAuth.getInstance()
             positiveButton.setOnClickListener {
                 val newMessage = input.text.toString()
                 professionTextView.text = newMessage
+                updateProfession(newMessage)
                 dialog.dismiss()
             }
 
@@ -251,6 +289,9 @@ val mAuth = FirebaseAuth.getInstance()
                     val data = jsonResponse.getJSONObject("data")
                     val imageurl = data.getString("profileImage")
                     val username = data.getString("username")
+                    phoneNumber = data.getString("contact_number")
+                    email = data.getString("email")
+                    location = data.getString("city")
 
                     val nameTextView = view?.findViewById<TextView>(R.id.name)
                     nameTextView?.text = username
@@ -274,6 +315,65 @@ val mAuth = FirebaseAuth.getInstance()
         }
 
         Volley.newRequestQueue(context).add(request)
+    }
+
+    fun getCareerInfo()
+    {
+        val url = requireContext().getString(R.string.IP) + "getCareerInfo.php"
+        val request = object : StringRequest(
+            Method.POST, url,
+            { response ->
+                val JsonResponse = JSONObject(response)
+                val status = JsonResponse.getInt("status")
+                if (status == 1) {
+                    val data = JsonResponse.getJSONObject("data")
+                    val profession = data.optString("profession", "Add your profession here")
+                    val professionTextView = view?.findViewById<TextView>(R.id.profession)
+                    professionTextView?.text = profession
+
+                } else {
+                    Toast.makeText(requireContext(), "Couldn't get career info", Toast.LENGTH_SHORT).show()
+                }
+            },
+            { error ->
+                Toast.makeText(requireContext(), "Couldn't get career info", Toast.LENGTH_SHORT).show()
+            }
+        ) {
+            override fun getParams(): Map<String, String> {
+                val params = HashMap<String, String>()
+                params["uid"] = mAuth.currentUser!!.uid
+                return params
+            }
+        }
+        Volley.newRequestQueue(requireContext()).add(request)
+    }
+
+    fun updateProfession(profession : String)
+    {
+        val url = requireContext().getString(R.string.IP) + "updateProfession.php"
+        val request = object : StringRequest(
+            Method.POST, url,
+            { response ->
+                val JsonResponse = JSONObject(response)
+                val status = JsonResponse.getInt("status")
+                if (status == 1) {
+                    Toast.makeText(requireContext(), "Profession updated successfully", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "Couldn't update profession", Toast.LENGTH_SHORT).show()
+                }
+            },
+            { error ->
+                Toast.makeText(requireContext(), "Couldn't update profession", Toast.LENGTH_SHORT).show()
+            }
+        ) {
+            override fun getParams(): Map<String, String> {
+                val params = HashMap<String, String>()
+                params["uid"] = mAuth.currentUser!!.uid
+                params["profession"] = profession
+                return params
+            }
+        }
+        Volley.newRequestQueue(requireContext()).add(request)
     }
 
     override fun onResume() {

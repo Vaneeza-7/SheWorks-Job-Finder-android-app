@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:text="Fascinated by the world of technology and it’s impactful applications; Laiba Tahreem Ahmad is pursuing a Bachelor’s degree in Artificial Intelligence."
+        android:text="Say something about yourself..."
         android:textColor="@color/black"
         android:layout_below="@+id/aboutmeTitle"
         android:padding="10dp"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:checkable="false"
-            android:text="Java"
+            android:text="Skill 1"
             android:textColor="@color/iconSelectedColor"
             app:chipBackgroundColor="#FDFDFD"
             app:chipStrokeColor="@color/colorAccent" />
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:checkable="false"
-            android:text="Kotlin"
+            android:text="Skill 2"
             android:textColor="@color/iconSelectedColor"
             app:chipBackgroundColor="#FDFDFD"
             app:chipStrokeColor="@color/colorAccent" />
@@ -116,7 +116,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:checkable="false"
-            android:text="Python"
+            android:text="Skill 3"
             android:textColor="@color/iconSelectedColor"
             app:chipBackgroundColor="#FDFDFD"
             app:chipStrokeColor="@color/colorAccent" />
@@ -128,7 +128,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:checkable="false"
-            android:text="C++"
+            android:text="Skill 4"
             android:textColor="@color/iconSelectedColor"
             app:chipBackgroundColor="#FDFDFD"
             app:chipStrokeColor="@color/colorAccent" />
@@ -140,35 +140,10 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:checkable="false"
-            android:text="HTML"
+            android:text="Add Skills here.."
             android:textColor="@color/iconSelectedColor"
             app:chipBackgroundColor="#FDFDFD"
             app:chipStrokeColor="@color/colorAccent" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip7"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:checkable="false"
-            android:text="CSS"
-            android:textColor="@color/iconSelectedColor"
-            app:chipBackgroundColor="#FDFDFD"
-            app:chipStrokeColor="@color/colorAccent" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip8"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:checkable="false"
-            android:text="JavaScript"
-            android:textColor="@color/iconSelectedColor"
-            app:chipBackgroundColor="#FDFDFD"
-            app:chipStrokeColor="@color/colorAccent" />
-
     </com.google.android.material.chip.ChipGroup>
 
 

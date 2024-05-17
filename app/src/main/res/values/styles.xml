@@ -14,6 +14,17 @@
         <item name="android:textColorPrimary">#FFFFFF</item>
         <item name="android:background">@color/iconSelectedColor</item>
         <item name="android:padding">2dp</item>
+
+    </style>
+
+    <style name="Chip_Custom" parent="Widget.Material3.Chip.Filter">
+        <item name="android:backgroundTint">@color/iconSelectedColor</item>
+        <item name="android:strokeColor">@color/colorAccent</item>
+        <item name="chipBackgroundColor">@color/white</item>
+        <item name="chipSurfaceColor">@color/white</item>
+        <item name="chipStrokeColor">@color/colorAccent</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
 </resources>

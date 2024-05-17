@@ -112,7 +112,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:text="Requirements Engineer"
+                        android:text="Add profession here..."
                         android:textColor="@android:color/white"
                         android:padding="5dp"
                         android:textSize="16sp" />
@@ -124,6 +124,7 @@
                         android:gravity="center"
                         android:padding="10dp">
                         <ImageButton
+                            android:id="@+id/callButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/baseline_call_24"
@@ -134,6 +135,7 @@
                             android:padding="10dp"/>
 
                         <ImageButton
+                            android:id="@+id/emailButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/baseline_email_24"
@@ -143,6 +145,7 @@
                             android:padding="10dp"/>
 
                         <ImageButton
+                            android:id="@+id/locationButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/baseline_location_pin_24"
