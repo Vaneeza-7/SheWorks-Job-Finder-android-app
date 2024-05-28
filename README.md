@@ -81,12 +81,12 @@ The application includes the following screens:
 - **Chat System:** Supports real-time messaging and networking with mentors and employers.
 
 ### Libraries Used
-- **Glide:** For image caching and loading, ensuring offline accessibility.
-- **Agora SDK:** For implementing video and audio call functionalities.
-- **10clouds/Fluid Bottom Navigation:** For implementing an animated bottom navigation.
-- **applandeo/Material Calendar View:** For implementing customizable events calendar with range date selection.
-- **robertlevonyan/CustomFloatingActionButton:** For creating round custom floating action button with icon.
-- **tbuonomo/Dots Indicator:** For creating the worm hole dots indicator for carousel with view pager2.
+- **[Glide](https://github.com/bumptech/glide):** For image caching and loading, ensuring offline accessibility.
+- **[Agora SDK](https://www.agora.io/en/):** For implementing video and audio call functionalities.
+- **[10clouds/Fluid Bottom Navigation](https://github.com/10clouds/FluidBottomNavigation-android):** For implementing an animated bottom navigation.
+- **[applandeo/Material Calendar View](https://github.com/Applandeo/Material-Calendar-View):** For implementing customizable events calendar with range date selection.
+- **[robertlevonyan/CustomFloatingActionButton](https://github.com/robertlevonyan/custom-floating-action-button):** For creating round custom floating action button with icon.
+- **[tbuonomo/Dots Indicator](https://github.com/tommybuonomo/dotsindicator):** For creating the worm hole dots indicator for carousel with view pager2.
 - **Volley and okhttp3:** For making network requests.
 
 ### Key Functionalities
